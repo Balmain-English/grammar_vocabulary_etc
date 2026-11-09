@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales English Vocabulary – B1-B2</title>
+<style>
+:root{
+  --navy:#17335c; --blue:#2563a8; --teal:#0e9488; --amber:#f5a623;
+  --bg:#f3f6fb; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7c; --line:#d5deea;
+  --ok:#1f9d5a; --okbg:#e6f6ec; --bad:#d6404b; --badbg:#fdeaec;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;font-size:17px}
+[hidden]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:26px 0 22px}
+header.top h1{margin:0;font-size:1.9rem;letter-spacing:.2px}
+header.top h1 span{color:#8fe3da}
+header.top p{margin:4px 0 0;opacity:.9}
+nav.tabs{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(23,51,92,.06)}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.tab{flex:1 0 auto;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.tab b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#e4ebf5;color:var(--navy);margin-right:8px;font-size:.85rem}
+.tab:hover{background:#eef3fa}
+.tab.active{background:var(--navy);color:#fff}
+.tab.active b{background:var(--teal);color:#fff}
+main{padding:26px 0 50px}
+.panel{display:none}
+.panel.active{display:block}
+h2{margin:0 0 4px;color:var(--navy);font-size:1.5rem}
+.intro{margin:0 0 20px;color:var(--muted)}
+mark{background:#fff0c7;color:inherit;border-radius:4px;padding:0 3px;font-weight:700}
+button{font:inherit}
+.btn,.primary{border:2px solid var(--blue);background:#fff;color:var(--blue);padding:9px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn:hover{background:#eaf2fc}
+.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.primary:hover{background:#0b7a70}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.result{margin-top:14px;font-weight:700;min-height:1.4em}
+.result.good{color:var(--ok)} .result.mid{color:#b86e00} .result.low{color:var(--bad)}
+.progress{color:var(--muted);font-size:.9rem}
+
+/* flash cards */
+.scene{perspective:1200px;max-width:580px;margin:0 auto}
+.card3d{position:relative;height:310px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1);cursor:pointer;outline:none}
+.card3d:focus-visible{outline:3px solid var(--amber);outline-offset:6px;border-radius:22px}
+.card3d.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px;text-align:center;box-shadow:0 10px 30px rgba(23,51,92,.18)}
+.front{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.front .word{font-size:3rem;font-weight:800;letter-spacing:.5px}
+.front .pos{opacity:.8;font-style:italic;margin-top:4px}
+.front .hint{position:absolute;bottom:16px;font-size:.85rem;opacity:.7}
+.speak{position:absolute;top:14px;right:14px;border:0;background:rgba(255,255,255,.18);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.speak:hover{background:rgba(255,255,255,.3)}
+.back{background:#fff;border:3px solid var(--teal);transform:rotateY(180deg)}
+.back .bw{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem}
+.back .def{font-size:1.45rem;font-weight:700;color:var(--navy);margin:8px 0 14px;line-height:1.3}
+.back .ex{background:#f3f8fb;border-left:4px solid var(--amber);padding:10px 14px;border-radius:8px;text-align:left;font-style:italic;color:#33475b}
+.fc-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.fc-bar{max-width:580px;margin:22px auto 0;height:8px;background:#dde6f2;border-radius:99px;overflow:hidden}
+.fc-bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+#fc-count{font-weight:700;color:var(--navy);min-width:70px;text-align:center}
+
+/* true / false */
+.tf-wrap{max-width:680px;margin:0 auto}
+.tf-progress{display:flex;justify-content:space-between;font-weight:700;color:var(--navy);margin-bottom:8px}
+.bar{height:8px;background:#dde6f2;border-radius:99px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--teal);transition:width .3s}
+.tf-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:0 6px 20px rgba(23,51,92,.08)}
+.tf-card.center{text-align:center}
+.statement{font-size:1.4rem;font-weight:600;color:var(--navy);margin:0 0 24px;line-height:1.4}
+.tf-btns{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tf-btns button{padding:16px;border-radius:14px;border:3px solid;font-weight:800;font-size:1.15rem;cursor:pointer;background:#fff;transition:.15s}
+.btn-true{border-color:var(--ok);color:var(--ok)} .btn-true:hover:not(:disabled){background:var(--okbg)}
+.btn-false{border-color:var(--bad);color:var(--bad)} .btn-false:hover:not(:disabled){background:var(--badbg)}
+.tf-btns button:disabled{cursor:default;opacity:.55}
+.tf-btns button.right{opacity:1;background:var(--ok);border-color:var(--ok);color:#fff}
+.tf-btns button.wrong{opacity:1;background:var(--bad);border-color:var(--bad);color:#fff}
+.feedback{margin-top:20px;padding:14px 16px;border-radius:12px;background:#f3f8fb;border-left:5px solid var(--teal)}
+.feedback.ok{background:var(--okbg);border-color:var(--ok)}
+.feedback.no{background:var(--badbg);border-color:var(--bad)}
+.feedback small{display:block;color:var(--muted);margin-top:4px}
+.next{margin-top:18px;float:right}
+.tf-card::after{content:"";display:block;clear:both}
+.big{font-size:4rem;font-weight:800;color:var(--teal);line-height:1.1}
+.review{text-align:left;padding-left:20px}
+.review li{margin-bottom:8px}
+
+/* drag and drop */
+.chip{display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;background:#fff;border:2px solid var(--blue);color:var(--navy);font-weight:700;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;line-height:1.3;transition:box-shadow .15s}
+.chip:hover{box-shadow:0 3px 10px rgba(37,99,168,.25)}
+.chip.selected{outline:3px solid var(--amber);outline-offset:1px;background:#fff8e6}
+.chip.dragging{opacity:.3}
+.chip.ghost{position:fixed;z-index:9999;pointer-events:none;margin:0;box-shadow:0 10px 25px rgba(0,0,0,.3);transform:rotate(-3deg);cursor:grabbing}
+.bank{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:2px dashed transparent;border-radius:12px;min-height:56px}
+.bank.over{border-color:var(--teal);background:#e3f6f3}
+.bank-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:0 4px 14px rgba(23,51,92,.08)}
+.bank-wrap h3{margin:2px 4px 2px;font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+.slot{display:inline-flex;align-items:center;justify-content:center;min-width:120px;min-height:38px;border:2px dashed #9fb4d0;border-radius:10px;background:#eef3fa;padding:2px 4px;vertical-align:middle;transition:.15s;outline:none}
+.slot:empty::before{content:attr(data-ph);color:#6f84a0;font-size:.85rem;font-weight:700}
+.slot:not(:empty){border-style:solid;background:#fff}
+.slot:focus-visible{outline:3px solid var(--amber)}
+.slot.over{border-color:var(--teal);background:#dff5f2}
+.has-selection .slot:empty{border-color:var(--amber)}
+.slot.ok{border-color:var(--ok);background:var(--okbg)}
+.slot.bad{border-color:var(--bad);background:var(--badbg)}
+.slot .chip{border-color:transparent;background:transparent;padding:4px 10px}
+.slot.ok .chip{color:#14693b}
+.slot.bad .chip{color:#a02530}
+
+.match-layout{display:grid;grid-template-columns:1fr 290px;gap:20px;align-items:start}
+.match-layout .bank-wrap{position:sticky;top:72px}
+.defs{display:grid;gap:10px}
+.def-row{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.def-row .slot{flex:0 0 175px}
+.def-row p{margin:0}
+
+/* emails */
+.email-bank{margin-bottom:20px}
+@media (min-width:800px) and (min-height:720px){.email-bank{position:sticky;top:64px;z-index:20}}
+.email{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 20px rgba(23,51,92,.08);margin-bottom:24px;overflow:hidden}
+.email-label{background:var(--navy);color:#fff;padding:8px 18px;font-weight:700;font-size:.9rem;letter-spacing:.5px}
+.email-head{background:#f4f7fb;border-bottom:1px solid var(--line);padding:12px 18px;font-size:.95rem}
+.email-head div{display:flex;gap:10px;padding:2px 0}
+.email-head span{flex:0 0 66px;color:var(--muted);font-weight:700}
+.email-head .subj{font-weight:700;color:var(--navy)}
+.email-body{padding:18px 22px 22px;line-height:2.3}
+.email-body p{margin:0 0 10px}
+.email-body .sig{line-height:1.5;margin-top:14px;color:var(--navy)}
+.email-body .slot{min-width:118px;margin:0 3px}
+
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:0 18px 30px}
+
+@media (max-width:800px){
+  body{font-size:16px}
+  header.top h1{font-size:1.5rem}
+  .match-layout{grid-template-columns:1fr}
+  .match-layout .bank-wrap{position:static;order:-1}
+  .def-row{flex-direction:column;align-items:stretch;gap:8px}
+  .def-row .slot{flex:none;width:100%}
+  .card3d{height:290px}
+  .front .word{font-size:2.4rem}
+  .statement{font-size:1.2rem}
+  .email-body{padding:14px;line-height:2.4}
+}
+@media (prefers-reduced-motion:reduce){.card3d{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Sales English <span>Vocabulary</span></h1>
+    <p>Level B1&ndash;B2 &middot; 20 key words for sales professionals</p>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap">
+  <button class="tab active" data-tab="flash"><b>1</b>Flash cards</button>
+  <button class="tab" data-tab="tf"><b>2</b>True or False</button>
+  <button class="tab" data-tab="match"><b>3</b>Match</button>
+  <button class="tab" data-tab="emails"><b>4</b>Emails</button>
+</div></nav>
+
+<main class="wrap">
+
+<!-- PART 1 -->
+<section id="flash" class="panel active">
+  <h2>Part 1 &middot; Flash cards</h2>
+  <p class="intro">Read the word. Click the card to see the meaning and an example. Use the arrows to move on.</p>
+  <div class="scene">
+    <div class="card3d" id="card" tabindex="0" role="button" aria-label="Flash card. Press Enter to flip.">
+      <div class="face front">
+        <button class="speak" id="speak" title="Listen" aria-label="Listen to the word">&#128266;</button>
+        <div class="word" id="fc-word"></div>
+        <div class="pos" id="fc-pos"></div>
+        <div class="hint">Click to flip &#8635;</div>
+      </div>
+      <div class="face back">
+        <div class="bw" id="fc-bw"></div>
+        <div class="def" id="fc-def"></div>
+        <div class="ex" id="fc-ex"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn" id="fc-prev">&#8592; Back</button>
+    <span id="fc-count"></span>
+    <button class="btn" id="fc-next">Next &#8594;</button>
+    <button class="btn" id="fc-shuffle">&#128256; Shuffle</button>
+  </div>
+  <div class="fc-bar"><i id="fc-bar"></i></div>
+</section>
+
+<!-- PART 2 -->
+<section id="tf" class="panel">
+  <h2>Part 2 &middot; True or False?</h2>
+  <p class="intro">Read each statement. Is it true or false? You get 20 new questions every time you play.</p>
+  <div class="tf-wrap" id="tf-box"></div>
+</section>
+
+<!-- PART 3 -->
+<section id="match" class="panel dnd">
+  <h2>Part 3 &middot; Match the words</h2>
+  <p class="intro">Drag each word to its meaning. On a phone or tablet you can also tap a word, then tap the box.</p>
+  <div class="match-layout">
+    <div class="defs" id="defs"></div>
+    <aside class="bank-wrap"><h3>Words</h3><div class="bank"></div></aside>
+  </div>
+  <div class="toolbar">
+    <button class="primary" data-act="check">Check answers</button>
+    <button class="btn" data-act="retry">Try again (wrong ones)</button>
+    <button class="btn" data-act="reveal">Show answers</button>
+    <button class="btn" data-act="build">Start again</button>
+  </div>
+  <div class="result" aria-live="polite"></div>
+</section>
+
+<!-- PART 4 -->
+<section id="emails" class="panel dnd">
+  <h2>Part 4 &middot; Complete the emails</h2>
+  <p class="intro">Read the two emails. Drag a word into each gap. Careful: there are 16 words but only 12 gaps!</p>
+  <div class="bank-wrap email-bank"><h3>Word list</h3><div class="bank"></div></div>
+
+  <div class="email">
+    <div class="email-label">&#9993; Email 1 &mdash; Enquiry</div>
+    <div class="email-head">
+      <div><span>From:</span> Sophie Martin &lt;sophie.martin@greenhome.example&gt;</div>
+      <div><span>To:</span> Daniel Reid &lt;daniel.reid@ecoclean.example&gt;</div>
+      <div><span>Date:</span> Mon 9 November 2026, 09:15</div>
+      <div><span>Subject:</span> <span class="subj" style="flex:1">Wholesale supply of eco-cleaning products</span></div>
+    </div>
+    <div class="email-body">
+      <p>Dear Mr Reid,</p>
+      <p>I am the buyer for Green Home, a <span class="slot" data-answer="retailer" data-ph="1"></span> with twelve shops in the south of France. We met your sales team at the trade fair in Lyon last month, and we are now interested in selling your eco-cleaning range in our shops.</p>
+      <p>At the moment we buy similar products from a <span class="slot" data-answer="competitor" data-ph="2"></span> of yours, but we are not happy with their prices. Our sales <span class="slot" data-answer="forecast" data-ph="3"></span> for next year shows that we could sell about 5,000 units a month. Could you therefore send us a detailed <span class="slot" data-answer="proposal" data-ph="4"></span> for the whole range, including your <span class="slot" data-answer="wholesale" data-ph="5"></span> prices? Please also confirm your payment <span class="slot" data-answer="terms" data-ph="6"></span> and how long delivery takes.</p>
+      <p>I look forward to hearing from you.</p>
+      <div class="sig">Kind regards,<br><b>Sophie Martin</b><br>Buyer, Green Home Retail</div>
+    </div>
+  </div>
+
+  <div class="email">
+    <div class="email-label">&#8617; Email 2 &mdash; Response</div>
+    <div class="email-head">
+      <div><span>From:</span> Daniel Reid &lt;daniel.reid@ecoclean.example&gt;</div>
+      <div><span>To:</span> Sophie Martin &lt;sophie.martin@greenhome.example&gt;</div>
+      <div><span>Date:</span> Mon 9 November 2026, 14:30</div>
+      <div><span>Subject:</span> <span class="subj" style="flex:1">RE: Wholesale supply of eco-cleaning products</span></div>
+    </div>
+    <div class="email-body">
+      <p>Dear Ms Martin,</p>
+      <p>Thank you for your email and your interest in EcoClean. I have attached our full offer for the complete range. We are always happy to <span class="slot" data-answer="negotiate" data-ph="7"></span> with long-term partners, so please call me to discuss your needs.</p>
+      <p>Our recommended retail prices give you a <span class="slot" data-answer="margin" data-ph="8"></span> of 40% on every product. If you order more than 3,000 units a month, we pay back 5% of your total spending at the end of the year as a <span class="slot" data-answer="rebate" data-ph="9"></span>. We also have a starter <span class="slot" data-answer="bundle" data-ph="10"></span> with ten of our best-selling products at one price, which is ideal for new customers.</p>
+      <p>The first <span class="slot" data-answer="shipment" data-ph="11"></span> can leave our warehouse within a week of your order, and delivery to your shops takes three working days. Our agreements last for one year, with an automatic <span class="slot" data-answer="renewal" data-ph="12"></span> unless you cancel in writing.</p>
+      <p>I look forward to working with you.</p>
+      <div class="sig">Best wishes,<br><b>Daniel Reid</b><br>Sales Manager, EcoClean Supplies</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="primary" data-act="check">Check answers</button>
+    <button class="btn" data-act="retry">Try again (wrong ones)</button>
+    <button class="btn" data-act="reveal">Show answers</button>
+    <button class="btn" data-act="build">Start again</button>
+  </div>
+  <div class="result" aria-live="polite"></div>
+</section>
+
+</main>
+<footer>Sales English Vocabulary &middot; B1&ndash;B2 &middot; Works offline &mdash; no internet needed.</footer>
+
+<script>
+/* ---------- DATA ---------- */
+const VOCAB = [
+ {w:"negotiate",    pos:"verb", def:"To discuss something with someone in order to reach an agreement, for example on price.", ex:"We managed to negotiate a better price with the supplier."},
+ {w:"proposal",      pos:"noun", def:"A detailed plan or offer that you send to a client for their approval.", ex:"We sent the client a proposal for a two-year service plan."},
+ {w:"commission",    pos:"noun", def:"Extra money paid to a sales person for each sale they make.", ex:"She earns a 5% commission on every sale."},
+ {w:"lead",          pos:"noun", def:"A person or company that may become a customer in the future.", ex:"The trade fair gave us thirty new leads."},
+ {w:"competitor",    pos:"noun", def:"A company that sells similar products or services to yours.", ex:"Our main competitor has just lowered its prices."},
+ {w:"market share",  pos:"noun", def:"The percentage of all sales in a market that one company has.", ex:"We want to increase our market share to 20% next year."},
+ {w:"revenue",       pos:"noun", def:"The total money a company receives from selling its products or services.", ex:"Annual revenue grew by 8% this year."},
+ {w:"margin",        pos:"noun", def:"The difference between what a product costs and what you sell it for.", ex:"The margin on this product is only 12%."},
+ {w:"wholesale",     pos:"noun / adjective", def:"Selling goods in large quantities, at lower prices, to businesses.", ex:"We buy our stock wholesale to keep our costs low."},
+ {w:"retailer",      pos:"noun", def:"A business that sells goods directly to the public.", ex:"Our products are sold by retailers across Europe."},
+ {w:"shipment",      pos:"noun", def:"A quantity of goods sent to a customer at the same time.", ex:"The shipment left our warehouse on Monday."},
+ {w:"overdue",       pos:"adjective", def:"Not paid, or not done, by the agreed date.", ex:"The invoice is now three weeks overdue."},
+ {w:"terms",         pos:"noun (plural)", def:"The conditions of a sale or agreement, such as payment dates and prices.", ex:"Our standard terms are payment within 30 days."},
+ {w:"forecast",      pos:"noun (also verb)", def:"A prediction of what will happen in the future, for example future sales.", ex:"The sales forecast for next quarter looks positive."},
+ {w:"rebate",        pos:"noun", def:"Money you get back after you have bought a large quantity of goods.", ex:"We receive a rebate if we buy more than 1,000 units."},
+ {w:"pitch",         pos:"noun (also verb)", def:"A short talk or presentation to persuade someone to buy something.", ex:"I have a sales pitch with a new client at ten o'clock."},
+ {w:"renewal",       pos:"noun", def:"Continuing a contract or agreement for a further period of time.", ex:"The renewal of our contract is due in March."},
+ {w:"objection",     pos:"noun", def:"A reason a customer gives for not wanting to buy.", ex:"Her main objection was the high price."},
+ {w:"bundle",        pos:"noun", def:"Several products or services sold together at one price.", ex:"The software bundle includes training and support."},
+ {w:"quota",         pos:"noun", def:"A fixed amount of sales that a sales person must reach.", ex:"He reached his quota two weeks early."}
+];
+const DEF = Object.fromEntries(VOCAB.map(v => [v.w, v.def]));
+
+/* [word, isTrue (1/0), statement] — pool of 60: 33 true, 27 false */
+const TF = [
+ ["negotiate",1,"When you negotiate, you try to reach an agreement that both sides accept."],
+ ["negotiate",1,"Customers often negotiate to get a lower price or better delivery terms."],
+ ["negotiate",0,"If you negotiate a deal, you must accept the first price you hear."],
+ ["proposal",1,"A proposal explains what you will offer a client and how much it will cost."],
+ ["proposal",1,"A client may accept a proposal, reject it or ask for changes."],
+ ["proposal",0,"A proposal is a payment made after the goods have arrived."],
+ ["commission",1,"Many sales people earn commission in addition to their basic salary."],
+ ["commission",1,"The more you sell, the more commission you usually receive."],
+ ["commission",0,"Commission is the tax a company pays on its profits."],
+ ["lead",1,"A lead is someone who might buy from you in the future."],
+ ["lead",1,"Sales teams collect leads at trade fairs and through their website."],
+ ["lead",0,"A lead is a customer who has already cancelled their contract."],
+ ["competitor",1,"A competitor sells products that are similar to yours."],
+ ["competitor",1,"It is useful to compare your prices with those of your competitors."],
+ ["competitor",0,"A competitor is a company that supplies you with raw materials."],
+ ["market share",1,"Market share shows what percentage of the total sales a company has."],
+ ["market share",1,"If a company's market share grows, it is selling more than its rivals."],
+ ["market share",0,"Market share is the amount of money a customer is willing to spend."],
+ ["revenue",1,"Revenue is the total money a company earns from its sales."],
+ ["revenue",1,"A company can have high revenue but still make a loss."],
+ ["revenue",0,"Revenue is the money left after all the costs are paid."],
+ ["margin",1,"A product's margin is the gap between its cost and its selling price."],
+ ["margin",1,"If you cut your prices too much, your margin gets smaller."],
+ ["margin",0,"A high margin means you are selling the product below its cost."],
+ ["wholesale",1,"Wholesale prices are usually lower than the prices in a shop."],
+ ["wholesale",1,"A wholesale company sells large quantities of goods to businesses."],
+ ["wholesale",0,"Wholesale means selling one single item to a member of the public."],
+ ["retailer",1,"A retailer sells products directly to the public."],
+ ["retailer",1,"Supermarkets and clothes shops are examples of retailers."],
+ ["retailer",0,"A retailer is a person who makes the products in a factory."],
+ ["shipment",1,"A shipment is a group of goods that are sent to a customer together."],
+ ["shipment",1,"If a shipment is damaged, the customer may ask for compensation."],
+ ["shipment",0,"A shipment is a list of the prices in a catalogue."],
+ ["overdue",1,"If an invoice is overdue, the customer has not paid by the agreed date."],
+ ["overdue",1,"A report that is overdue should have been finished already."],
+ ["overdue",0,"An overdue payment arrives earlier than the deadline."],
+ ["terms",1,"Payment terms say when and how the customer must pay."],
+ ["terms",1,"Before you sign a deal, you should read the terms carefully."],
+ ["terms",0,"Terms are the products that a company keeps in its warehouse."],
+ ["forecast",1,"A sales forecast is a prediction of how much you will sell in the future."],
+ ["forecast",0,"A forecast is a report about what you sold last year only."],
+ ["forecast",0,"A forecast is always one hundred percent correct."],
+ ["rebate",1,"A rebate is money that you receive back after buying a large quantity."],
+ ["rebate",0,"A rebate is an extra charge that customers must pay at the till."],
+ ["rebate",0,"A rebate is the fee a supplier charges for late payment."],
+ ["pitch",1,"A sales pitch is a short presentation to persuade a customer to buy."],
+ ["pitch",0,"A pitch is a long written contract signed by both companies."],
+ ["pitch",0,"A pitch is a complaint that a customer sends after a bad delivery."],
+ ["renewal",1,"The renewal of a contract means that it continues for another period."],
+ ["renewal",0,"A renewal is the first time a customer buys from a company."],
+ ["renewal",0,"A renewal means ending a contract immediately."],
+ ["objection",1,"An objection is a reason why a customer does not want to buy."],
+ ["objection",0,"An objection is a compliment that a customer gives about a product."],
+ ["objection",0,"When a customer raises an objection, they are ready to sign the contract."],
+ ["bundle",1,"A bundle combines several products or services at one price."],
+ ["bundle",0,"A bundle is a single product that is sold by itself."],
+ ["bundle",0,"A bundle is a legal document that sets out the payment dates."],
+ ["quota",1,"A sales quota is the amount you are expected to sell in a given period."],
+ ["quota",0,"A quota is a discount given to customers who pay late."],
+ ["quota",0,"If you do not reach your quota, you have sold more than expected."]
+];
+
+/* ---------- HELPERS ---------- */
+const $ = s => document.querySelector(s);
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const shuffle = a => { const r = a.slice(); for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]];} return r; };
+const hl = (text, word) => esc(text).replace(new RegExp("\\b("+word+")(s?)\\b","i"), "<mark>$1$2</mark>");
+
+/* ---------- TABS ---------- */
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("active", x === b));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === b.dataset.tab));
+  window.scrollTo({top:0});
+}));
+
+/* ---------- PART 1: FLASH CARDS ---------- */
+let deck = VOCAB.slice(), ci = 0;
+const card = $("#card");
+function fcRender(){
+  const v = deck[ci];
+  $("#fc-word").textContent = v.w;
+  $("#fc-pos").textContent = v.pos;
+  $("#fc-bw").textContent = v.w;
+  $("#fc-def").textContent = v.def;
+  $("#fc-ex").innerHTML = hl(v.ex, v.w);
+  $("#fc-count").textContent = (ci+1) + " / " + deck.length;
+  $("#fc-bar").style.width = ((ci+1)/deck.length*100) + "%";
+}
+function fcGo(d){
+  const flipped = card.classList.contains("flipped");
+  card.classList.remove("flipped");
+  setTimeout(() => { ci = (ci + d + deck.length) % deck.length; fcRender(); }, flipped ? 220 : 0);
+}
+card.addEventListener("click", () => card.classList.toggle("flipped"));
+card.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); card.classList.toggle("flipped"); }});
+$("#fc-prev").onclick = () => fcGo(-1);
+$("#fc-next").onclick = () => fcGo(1);
+$("#fc-shuffle").onclick = () => { card.classList.remove("flipped"); deck = shuffle(VOCAB); ci = 0; setTimeout(fcRender, 200); };
+document.addEventListener("keydown", e => {
+  if(!$("#flash").classList.contains("active")) return;
+  if(e.key === "ArrowRight") fcGo(1);
+  if(e.key === "ArrowLeft") fcGo(-1);
+});
+if("speechSynthesis" in window){
+  $("#speak").addEventListener("click", e => {
+    e.stopPropagation();
+    const u = new SpeechSynthesisUtterance(deck[ci].w); u.lang = "en-GB"; u.rate = .85;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  });
+} else { $("#speak").hidden = true; }
+fcRender();
+
+/* ---------- PART 2: TRUE / FALSE ---------- */
+const POOL_T = TF.filter(x => x[1]), POOL_F = TF.filter(x => !x[1]);
+let round = [], qi = 0, score = 0, wrongs = [];
+function startQuiz(){
+  const nT = 10 + Math.floor(Math.random()*3);          // 10, 11 or 12 true  -> 10, 9 or 8 false
+  round = shuffle([...shuffle(POOL_T).slice(0,nT), ...shuffle(POOL_F).slice(0,20-nT)]);
+  qi = 0; score = 0; wrongs = [];
+  renderQ();
+}
+function renderQ(){
+  const box = $("#tf-box"), [w,,st] = round[qi];
+  box.innerHTML =
+    '<div class="tf-progress"><span>Question '+(qi+1)+' of 20</span><span>Score: '+score+'</span></div>'+
+    '<div class="bar"><i style="width:'+(qi/20*100)+'%"></i></div>'+
+    '<div class="tf-card"><p class="statement">'+hl(st,w)+'</p>'+
+    '<div class="tf-btns"><button class="btn-true" data-a="1">&#10004; True</button><button class="btn-false" data-a="0">&#10008; False</button></div>'+
+    '<div class="feedback" id="fb" hidden></div>'+
+    '<button class="primary next" id="nextq" hidden>'+(qi===19?"See my score":"Next &#8594;")+'</button></div>';
+  box.querySelectorAll("[data-a]").forEach(b => b.onclick = () => answer(b));
+}
+function answer(btn){
+  const [w,val,st] = round[qi];
+  const said = btn.dataset.a === "1", right = said === !!val;
+  document.querySelectorAll(".tf-btns button").forEach(b => {
+    b.disabled = true;
+    if((b.dataset.a === "1") === !!val) b.classList.add("right");
+  });
+  if(!right) btn.classList.add("wrong");
+  if(right) score++; else wrongs.push(round[qi]);
+  const fb = $("#fb");
+  fb.hidden = false;
+  fb.className = "feedback " + (right ? "ok" : "no");
+  fb.innerHTML = '<b>'+(right ? "Correct!" : "Not quite. This statement is "+(val?"TRUE":"FALSE")+".")+'</b>'+
+                 '<small><b>'+w+'</b>: '+esc(DEF[w])+'</small>';
+  const nx = $("#nextq"); nx.hidden = false; nx.focus();
+  nx.onclick = () => { qi++; qi < 20 ? renderQ() : finishQuiz(); };
+}
+function finishQuiz(){
+  const msg = score>=18 ? "Excellent! You know these words very well." :
+              score>=14 ? "Good work! Look at the flash cards again for the words you missed." :
+              score>=10 ? "Not bad. Practise the flash cards and try again." :
+                          "Keep practising! Go back to the flash cards, then play again.";
+  $("#tf-box").innerHTML =
+    '<div class="tf-card center"><div class="big">'+score+' / 20</div><p><b>'+msg+'</b></p>'+
+    (wrongs.length ? '<h3>Review your mistakes</h3><ul class="review">'+wrongs.map(x =>
+       '<li>'+hl(x[2],x[0])+' <b>&rarr; '+(x[1]?"True":"False")+'</b></li>').join("")+'</ul>' : '<p>&#127942; No mistakes!</p>')+
+    '<button class="primary" id="again">Play again &mdash; new random questions</button></div>';
+  $("#again").onclick = startQuiz;
+}
+startQuiz();
+
+/* ---------- DRAG AND DROP ENGINE ---------- */
+function initDnD(root, words){
+  const bank = root.querySelector(".bank");
+  const result = root.querySelector(".result");
+  const slots = () => [...root.querySelectorAll(".slot")];
+  let selected = null;
+
+  function deselect(){ if(selected) selected.classList.remove("selected"); selected = null; root.classList.remove("has-selection"); }
+  function say(text, cls){ if(result){ result.textContent = text; result.className = "result " + (cls||""); } }
+  function resetStatus(){ slots().forEach(s => s.classList.remove("ok","bad")); }
+
+  function makeChip(w){
+    const c = document.createElement("span");
+    c.className = "chip"; c.textContent = w; c.dataset.word = w; c.tabIndex = 0; c.setAttribute("role","button");
+    c.addEventListener("pointerdown", e => onDown(e,c));
+    c.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); tap(c); }});
+    return c;
+  }
+  function build(){
+    deselect(); bank.innerHTML = "";
+    slots().forEach(s => { s.innerHTML = ""; s.classList.remove("ok","bad"); s.tabIndex = 0; });
+    shuffle(words).forEach(w => bank.appendChild(makeChip(w)));
+    say("");
+  }
+  function place(chip, slot){
+    const from = chip.parentElement, existing = slot.querySelector(".chip");
+    if(existing === chip){ deselect(); return; }
+    if(existing) (from.classList.contains("slot") ? from : bank).appendChild(existing);
+    slot.appendChild(chip);
+    [from, slot].forEach(s => s.classList && s.classList.remove("ok","bad"));
+    deselect();
+  }
+  function toBank(chip){
+    const from = chip.parentElement;
+    bank.appendChild(chip);
+    if(from.classList.contains("slot")) from.classList.remove("ok","bad");
+    deselect();
+  }
+  function tap(chip){
+    const par = chip.parentElement;
+    if(selected && selected !== chip && par.classList.contains("slot")){ place(selected, par); return; }
+    if(selected === chip){ deselect(); return; }
+    deselect(); selected = chip; chip.classList.add("selected"); root.classList.add("has-selection");
+  }
+  function drop(chip, t){
+    if(!t) return;
+    const slot = t.closest(".slot");
+    if(slot && root.contains(slot)){ place(chip, slot); return; }
+    if(bank.contains(t) || t === bank) toBank(chip);
+  }
+  function onDown(e, chip){
+    if(e.pointerType === "mouse" && e.button !== 0) return;
+    const sx = e.clientX, sy = e.clientY, r = chip.getBoundingClientRect(), ox = sx - r.left, oy = sy - r.top;
+    let ghost = null, dragging = false, over = null;
+    try{ chip.setPointerCapture(e.pointerId); }catch(_){}
+    const move = ev => {
+      if(!dragging){
+        if(Math.hypot(ev.clientX-sx, ev.clientY-sy) < 6) return;
+        dragging = true;
+        ghost = chip.cloneNode(true); ghost.classList.remove("selected"); ghost.classList.add("ghost");
+        document.body.appendChild(ghost); chip.classList.add("dragging");
+      }
+      ghost.style.left = (ev.clientX - ox) + "px"; ghost.style.top = (ev.clientY - oy) + "px";
+      if(ev.clientY < 70) window.scrollBy(0,-14); else if(ev.clientY > innerHeight - 70) window.scrollBy(0,14);
+      const t = document.elementFromPoint(ev.clientX, ev.clientY);
+      let z = t && (t.closest(".slot") || t.closest(".bank"));
+      if(z && !root.contains(z)) z = null;
+      if(over !== z){ if(over) over.classList.remove("over"); over = z; if(over) over.classList.add("over"); }
+    };
+    const end = ev => {
+      chip.removeEventListener("pointermove", move);
+      chip.removeEventListener("pointerup", end);
+      chip.removeEventListener("pointercancel", end);
+      try{ chip.releasePointerCapture(e.pointerId); }catch(_){}
+      if(over) over.classList.remove("over");
+      if(dragging){
+        ghost.remove(); chip.classList.remove("dragging");
+        if(ev.type === "pointerup") drop(chip, document.elementFromPoint(ev.clientX, ev.clientY));
+      } else if(ev.type === "pointerup"){ tap(chip); }
+    };
+    chip.addEventListener("pointermove", move);
+    chip.addEventListener("pointerup", end);
+    chip.addEventListener("pointercancel", end);
+  }
+
+  root.addEventListener("click", e => {
+    if(e.target.closest(".chip")) return;
+    const slot = e.target.closest(".slot");
+    if(slot && selected){ place(selected, slot); return; }
+    if(selected && e.target.closest(".bank")) toBank(selected);
+  });
+  root.addEventListener("keydown", e => {
+    const slot = e.target.classList && e.target.classList.contains("slot") ? e.target : null;
+    if(slot && selected && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); place(selected, slot); }
+  });
+
+  const api = {
+    build,
+    check(){
+      let ok = 0, empty = 0; const all = slots();
+      all.forEach(s => {
+        s.classList.remove("ok","bad");
+        const c = s.querySelector(".chip");
+        if(!c){ empty++; return; }
+        if(c.dataset.word === s.dataset.answer){ s.classList.add("ok"); ok++; } else s.classList.add("bad");
+      });
+      const txt = ok + " / " + all.length + " correct" + (empty ? " (" + empty + " still empty)" : "") + ".";
+      say(ok === all.length ? "🎉 " + txt + " Well done!" : txt, ok === all.length ? "good" : ok >= all.length*0.6 ? "mid" : "low");
+    },
+    retry(){
+      slots().forEach(s => { const c = s.querySelector(".chip"); if(s.classList.contains("bad") && c) bank.appendChild(c); s.classList.remove("ok","bad"); });
+      deselect(); say("Move the wrong words to a new place, then check again.");
+    },
+    reveal(){
+      const chips = [...root.querySelectorAll(".chip")];
+      chips.forEach(c => bank.appendChild(c));
+      slots().forEach(s => { const c = chips.find(x => x.dataset.word === s.dataset.answer); if(c){ s.appendChild(c); s.classList.add("ok"); } });
+      deselect(); say("Here are the correct answers.");
+    }
+  };
+  root.querySelectorAll("[data-act]").forEach(b => b.addEventListener("click", () => api[b.dataset.act]()));
+  return api;
+}
+
+/* ---------- PART 3: MATCH ---------- */
+const matchRoot = $("#match");
+const matchDnD = initDnD(matchRoot, VOCAB.map(v => v.w));
+const origBuild = matchDnD.build;
+function buildMatch(){
+  $("#defs").innerHTML = shuffle(VOCAB).map(v =>
+    '<div class="def-row"><span class="slot" data-answer="'+v.w+'" data-ph="Drop word here"></span><p>'+esc(v.def)+'</p></div>').join("");
+  origBuild();
+}
+matchRoot.querySelector('[data-act="build"]').addEventListener("click", buildMatch);
+buildMatch();
+
+/* ---------- PART 4: EMAILS ---------- */
+const emailWords = ["retailer","competitor","forecast","proposal","wholesale","terms",
+                    "negotiate","margin","rebate","bundle","shipment","renewal",
+                    "commission","objection","quota","revenue"];
+initDnD($("#emails"), emailWords).build();
+</script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales English Vocabulary – A2</title>
+<style>
+:root{
+  --navy:#17335c; --blue:#2563a8; --teal:#0e9488; --amber:#f5a623;
+  --bg:#f3f6fb; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7c; --line:#d5deea;
+  --ok:#1f9d5a; --okbg:#e6f6ec; --bad:#d6404b; --badbg:#fdeaec;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;font-size:17px}
+[hidden]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:26px 0 22px}
+header.top h1{margin:0;font-size:1.9rem;letter-spacing:.2px}
+header.top h1 span{color:#8fe3da}
+header.top p{margin:4px 0 0;opacity:.9}
+nav.tabs{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(23,51,92,.06)}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.tab{flex:1 0 auto;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.tab b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#e4ebf5;color:var(--navy);margin-right:8px;font-size:.85rem}
+.tab:hover{background:#eef3fa}
+.tab.active{background:var(--navy);color:#fff}
+.tab.active b{background:var(--teal);color:#fff}
+main{padding:26px 0 50px}
+.panel{display:none}
+.panel.active{display:block}
+h2{margin:0 0 4px;color:var(--navy);font-size:1.5rem}
+.intro{margin:0 0 20px;color:var(--muted)}
+mark{background:#fff0c7;color:inherit;border-radius:4px;padding:0 3px;font-weight:700}
+button{font:inherit}
+.btn,.primary{border:2px solid var(--blue);background:#fff;color:var(--blue);padding:9px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn:hover{background:#eaf2fc}
+.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.primary:hover{background:#0b7a70}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.result{margin-top:14px;font-weight:700;min-height:1.4em}
+.result.good{color:var(--ok)} .result.mid{color:#b86e00} .result.low{color:var(--bad)}
+.progress{color:var(--muted);font-size:.9rem}
+
+/* flash cards */
+.scene{perspective:1200px;max-width:580px;margin:0 auto}
+.card3d{position:relative;height:310px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1);cursor:pointer;outline:none}
+.card3d:focus-visible{outline:3px solid var(--amber);outline-offset:6px;border-radius:22px}
+.card3d.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px;text-align:center;box-shadow:0 10px 30px rgba(23,51,92,.18)}
+.front{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.front .word{font-size:3rem;font-weight:800;letter-spacing:.5px}
+.front .pos{opacity:.8;font-style:italic;margin-top:4px}
+.front .hint{position:absolute;bottom:16px;font-size:.85rem;opacity:.7}
+.speak{position:absolute;top:14px;right:14px;border:0;background:rgba(255,255,255,.18);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.speak:hover{background:rgba(255,255,255,.3)}
+.back{background:#fff;border:3px solid var(--teal);transform:rotateY(180deg)}
+.back .bw{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem}
+.back .def{font-size:1.45rem;font-weight:700;color:var(--navy);margin:8px 0 14px;line-height:1.3}
+.back .ex{background:#f3f8fb;border-left:4px solid var(--amber);padding:10px 14px;border-radius:8px;text-align:left;font-style:italic;color:#33475b}
+.fc-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.fc-bar{max-width:580px;margin:22px auto 0;height:8px;background:#dde6f2;border-radius:99px;overflow:hidden}
+.fc-bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+#fc-count{font-weight:700;color:var(--navy);min-width:70px;text-align:center}
+
+/* true / false */
+.tf-wrap{max-width:680px;margin:0 auto}
+.tf-progress{display:flex;justify-content:space-between;font-weight:700;color:var(--navy);margin-bottom:8px}
+.bar{height:8px;background:#dde6f2;border-radius:99px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--teal);transition:width .3s}
+.tf-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:0 6px 20px rgba(23,51,92,.08)}
+.tf-card.center{text-align:center}
+.statement{font-size:1.4rem;font-weight:600;color:var(--navy);margin:0 0 24px;line-height:1.4}
+.tf-btns{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tf-btns button{padding:16px;border-radius:14px;border:3px solid;font-weight:800;font-size:1.15rem;cursor:pointer;background:#fff;transition:.15s}
+.btn-true{border-color:var(--ok);color:var(--ok)} .btn-true:hover:not(:disabled){background:var(--okbg)}
+.btn-false{border-color:var(--bad);color:var(--bad)} .btn-false:hover:not(:disabled){background:var(--badbg)}
+.tf-btns button:disabled{cursor:default;opacity:.55}
+.tf-btns button.right{opacity:1;background:var(--ok);border-color:var(--ok);color:#fff}
+.tf-btns button.wrong{opacity:1;background:var(--bad);border-color:var(--bad);color:#fff}
+.feedback{margin-top:20px;padding:14px 16px;border-radius:12px;background:#f3f8fb;border-left:5px solid var(--teal)}
+.feedback.ok{background:var(--okbg);border-color:var(--ok)}
+.feedback.no{background:var(--badbg);border-color:var(--bad)}
+.feedback small{display:block;color:var(--muted);margin-top:4px}
+.next{margin-top:18px;float:right}
+.tf-card::after{content:"";display:block;clear:both}
+.big{font-size:4rem;font-weight:800;color:var(--teal);line-height:1.1}
+.review{text-align:left;padding-left:20px}
+.review li{margin-bottom:8px}
+
+/* drag and drop */
+.chip{display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;background:#fff;border:2px solid var(--blue);color:var(--navy);font-weight:700;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;line-height:1.3;transition:box-shadow .15s}
+.chip:hover{box-shadow:0 3px 10px rgba(37,99,168,.25)}
+.chip.selected{outline:3px solid var(--amber);outline-offset:1px;background:#fff8e6}
+.chip.dragging{opacity:.3}
+.chip.ghost{position:fixed;z-index:9999;pointer-events:none;margin:0;box-shadow:0 10px 25px rgba(0,0,0,.3);transform:rotate(-3deg);cursor:grabbing}
+.bank{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:2px dashed transparent;border-radius:12px;min-height:56px}
+.bank.over{border-color:var(--teal);background:#e3f6f3}
+.bank-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:0 4px 14px rgba(23,51,92,.08)}
+.bank-wrap h3{margin:2px 4px 2px;font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+.slot{display:inline-flex;align-items:center;justify-content:center;min-width:120px;min-height:38px;border:2px dashed #9fb4d0;border-radius:10px;background:#eef3fa;padding:2px 4px;vertical-align:middle;transition:.15s;outline:none}
+.slot:empty::before{content:attr(data-ph);color:#6f84a0;font-size:.85rem;font-weight:700}
+.slot:not(:empty){border-style:solid;background:#fff}
+.slot:focus-visible{outline:3px solid var(--amber)}
+.slot.over{border-color:var(--teal);background:#dff5f2}
+.has-selection .slot:empty{border-color:var(--amber)}
+.slot.ok{border-color:var(--ok);background:var(--okbg)}
+.slot.bad{border-color:var(--bad);background:var(--badbg)}
+.slot .chip{border-color:transparent;background:transparent;padding:4px 10px}
+.slot.ok .chip{color:#14693b}
+.slot.bad .chip{color:#a02530}
+
+.match-layout{display:grid;grid-template-columns:1fr 290px;gap:20px;align-items:start}
+.match-layout .bank-wrap{position:sticky;top:72px}
+.defs{display:grid;gap:10px}
+.def-row{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.def-row .slot{flex:0 0 150px}
+.def-row p{margin:0}
+
+/* emails */
+.email-bank{margin-bottom:20px}
+@media (min-width:800px) and (min-height:720px){.email-bank{position:sticky;top:64px;z-index:20}}
+.email{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 20px rgba(23,51,92,.08);margin-bottom:24px;overflow:hidden}
+.email-label{background:var(--navy);color:#fff;padding:8px 18px;font-weight:700;font-size:.9rem;letter-spacing:.5px}
+.email-head{background:#f4f7fb;border-bottom:1px solid var(--line);padding:12px 18px;font-size:.95rem}
+.email-head div{display:flex;gap:10px;padding:2px 0}
+.email-head span{flex:0 0 66px;color:var(--muted);font-weight:700}
+.email-head .subj{font-weight:700;color:var(--navy)}
+.email-body{padding:18px 22px 22px;line-height:2.3}
+.email-body p{margin:0 0 10px}
+.email-body .sig{line-height:1.5;margin-top:14px;color:var(--navy)}
+.email-body .slot{min-width:118px;margin:0 3px}
+
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:0 18px 30px}
+
+@media (max-width:800px){
+  body{font-size:16px}
+  header.top h1{font-size:1.5rem}
+  .match-layout{grid-template-columns:1fr}
+  .match-layout .bank-wrap{position:static;order:-1}
+  .def-row{flex-direction:column;align-items:stretch;gap:8px}
+  .def-row .slot{flex:none;width:100%}
+  .card3d{height:290px}
+  .front .word{font-size:2.4rem}
+  .statement{font-size:1.2rem}
+  .email-body{padding:14px;line-height:2.4}
+}
+@media (prefers-reduced-motion:reduce){.card3d{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Sales English <span>Vocabulary</span></h1>
+    <p>Level A2 &middot; 20 useful words for sales people</p>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap">
+  <button class="tab active" data-tab="flash"><b>1</b>Flash cards</button>
+  <button class="tab" data-tab="tf"><b>2</b>True or False</button>
+  <button class="tab" data-tab="match"><b>3</b>Match</button>
+  <button class="tab" data-tab="emails"><b>4</b>Emails</button>
+</div></nav>
+
+<main class="wrap">
+
+<!-- PART 1 -->
+<section id="flash" class="panel active">
+  <h2>Part 1 &middot; Flash cards</h2>
+  <p class="intro">Read the word. Click the card to see the meaning and an example. Use the arrows to move on.</p>
+  <div class="scene">
+    <div class="card3d" id="card" tabindex="0" role="button" aria-label="Flash card. Press Enter to flip.">
+      <div class="face front">
+        <button class="speak" id="speak" title="Listen" aria-label="Listen to the word">&#128266;</button>
+        <div class="word" id="fc-word"></div>
+        <div class="pos" id="fc-pos"></div>
+        <div class="hint">Click to flip &#8635;</div>
+      </div>
+      <div class="face back">
+        <div class="bw" id="fc-bw"></div>
+        <div class="def" id="fc-def"></div>
+        <div class="ex" id="fc-ex"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn" id="fc-prev">&#8592; Back</button>
+    <span id="fc-count"></span>
+    <button class="btn" id="fc-next">Next &#8594;</button>
+    <button class="btn" id="fc-shuffle">&#128256; Shuffle</button>
+  </div>
+  <div class="fc-bar"><i id="fc-bar"></i></div>
+</section>
+
+<!-- PART 2 -->
+<section id="tf" class="panel">
+  <h2>Part 2 &middot; True or False?</h2>
+  <p class="intro">Read each statement. Is it true or false? You get 20 new questions every time you play.</p>
+  <div class="tf-wrap" id="tf-box"></div>
+</section>
+
+<!-- PART 3 -->
+<section id="match" class="panel dnd">
+  <h2>Part 3 &middot; Match the words</h2>
+  <p class="intro">Drag each word to its meaning. On a phone or tablet you can also tap a word, then tap the box.</p>
+  <div class="match-layout">
+    <div class="defs" id="defs"></div>
+    <aside class="bank-wrap"><h3>Words</h3><div class="bank"></div></aside>
+  </div>
+  <div class="toolbar">
+    <button class="primary" data-act="check">Check answers</button>
+    <button class="btn" data-act="retry">Try again (wrong ones)</button>
+    <button class="btn" data-act="reveal">Show answers</button>
+    <button class="btn" data-act="build">Start again</button>
+  </div>
+  <div class="result" aria-live="polite"></div>
+</section>
+
+<!-- PART 4 -->
+<section id="emails" class="panel dnd">
+  <h2>Part 4 &middot; Complete the emails</h2>
+  <p class="intro">Read the two emails. Drag a word into each gap. Careful: there are 16 words but only 12 gaps!</p>
+  <div class="bank-wrap email-bank"><h3>Word list</h3><div class="bank"></div></div>
+
+  <div class="email">
+    <div class="email-label">&#9993; Email 1 &mdash; Enquiry</div>
+    <div class="email-head">
+      <div><span>From:</span> Maria Lopez &lt;maria.lopez@brightoffice.example&gt;</div>
+      <div><span>To:</span> Tom Baker &lt;tom.baker@daylightfurniture.example&gt;</div>
+      <div><span>Date:</span> Mon 9 November 2026, 09:15</div>
+      <div><span>Subject:</span> <span class="subj" style="flex:1">Office chairs for our new office</span></div>
+    </div>
+    <div class="email-body">
+      <p>Dear Mr Baker,</p>
+      <p>I am writing with an <span class="slot" data-answer="enquiry" data-ph="1"></span> because I would like some information about your office chairs. I saw them in your <span class="slot" data-answer="brochure" data-ph="2"></span>, which a colleague gave me at a trade fair.</p>
+      <p>We need 40 chairs for our new office. We cannot spend more than &euro;6,000. This is our <span class="slot" data-answer="budget" data-ph="3"></span>. Please send us a <span class="slot" data-answer="quote" data-ph="4"></span> for 40 chairs.</p>
+      <p>We need the chairs before 15 December. This is our <span class="slot" data-answer="deadline" data-ph="5"></span>, because we move into the new office on 18 December. Could you also send us a free <span class="slot" data-answer="sample" data-ph="6"></span> of the chair so we can try it?</p>
+      <p>I look forward to your reply.</p>
+      <div class="sig">Kind regards,<br><b>Maria Lopez</b><br>Purchasing Manager, Bright Office Ltd</div>
+    </div>
+  </div>
+
+  <div class="email">
+    <div class="email-label">&#8617; Email 2 &mdash; Response</div>
+    <div class="email-head">
+      <div><span>From:</span> Tom Baker &lt;tom.baker@daylightfurniture.example&gt;</div>
+      <div><span>To:</span> Maria Lopez &lt;maria.lopez@brightoffice.example&gt;</div>
+      <div><span>Date:</span> Mon 9 November 2026, 14:30</div>
+      <div><span>Subject:</span> <span class="subj" style="flex:1">RE: Office chairs for our new office</span></div>
+    </div>
+    <div class="email-body">
+      <p>Dear Ms Lopez,</p>
+      <p>Thank you for your email. Good news: we have the Comfort 200 chair in <span class="slot" data-answer="stock" data-ph="7"></span> and it is ready to send.</p>
+      <p>We have a special <span class="slot" data-answer="offer" data-ph="8"></span> this month: 40 chairs for only &euro;5,800. This price includes a 10% <span class="slot" data-answer="discount" data-ph="9"></span> because it is a big order.</p>
+      <p>We give free <span class="slot" data-answer="delivery" data-ph="10"></span> to your office. It takes five working days, so you will have the chairs before 15 December. We will also send you one chair to try, free of charge, on Wednesday.</p>
+      <p>All our chairs have a two-year <span class="slot" data-answer="warranty" data-ph="11"></span>. If a chair has a problem, we will repair it or replace it.</p>
+      <p>If you would like to place an <span class="slot" data-answer="order" data-ph="12"></span>, please reply to this email.</p>
+      <div class="sig">Best wishes,<br><b>Tom Baker</b><br>Sales Manager, Daylight Furniture</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="primary" data-act="check">Check answers</button>
+    <button class="btn" data-act="retry">Try again (wrong ones)</button>
+    <button class="btn" data-act="reveal">Show answers</button>
+    <button class="btn" data-act="build">Start again</button>
+  </div>
+  <div class="result" aria-live="polite"></div>
+</section>
+
+</main>
+<footer>Sales English Vocabulary &middot; A2 &middot; Works offline &mdash; no internet needed.</footer>
+
+<script>
+/* ---------- DATA ---------- */
+const VOCAB = [
+ {w:"quote",    pos:"noun (also verb)", def:"A document that says how much something will cost.", ex:"Can you send me a quote for 50 boxes?"},
+ {w:"invoice",  pos:"noun", def:"A document that asks a customer to pay money.", ex:"We will send the invoice by email on Friday."},
+ {w:"discount", pos:"noun", def:"A lower price than normal.", ex:"We give a 10% discount on orders over €500."},
+ {w:"deadline", pos:"noun", def:"The last day or time to finish something.", ex:"The deadline for the proposal is next Tuesday."},
+ {w:"delivery", pos:"noun", def:"Taking goods to the customer.", ex:"Delivery takes three working days."},
+ {w:"order",    pos:"noun (also verb)", def:"A request to buy products.", ex:"Our customer made a big order this morning."},
+ {w:"offer",    pos:"noun (also verb)", def:"Something you propose to a customer, for example a special price.", ex:"Our special offer ends on Sunday."},
+ {w:"brochure", pos:"noun", def:"A small book with pictures and information about products.", ex:"I gave the client a brochure about our new products."},
+ {w:"deal",     pos:"noun", def:"An agreement between a buyer and a seller.", ex:"We closed a good deal with a new customer today."},
+ {w:"target",   pos:"noun", def:"The number or result you want to reach.", ex:"My sales target this month is €20,000."},
+ {w:"profit",   pos:"noun", def:"The money you keep after you pay all the costs.", ex:"The company made a profit of €50,000 last year."},
+ {w:"stock",    pos:"noun", def:"The products a company has ready to sell.", ex:"Sorry, the blue model is out of stock."},
+ {w:"payment",  pos:"noun", def:"Money that you give for goods or services.", ex:"We accept payment by credit card or bank transfer."},
+ {w:"contract", pos:"noun", def:"A written agreement that both sides sign.", ex:"Please read the contract and sign it."},
+ {w:"supplier", pos:"noun", def:"A company that sells goods to other companies.", ex:"Our main supplier is based in Italy."},
+ {w:"sample",   pos:"noun", def:"A small example of a product for the customer to try.", ex:"I can send you a free sample of the product."},
+ {w:"warranty", pos:"noun", def:"A promise to repair or replace a product if it has a problem.", ex:"The printer has a two-year warranty."},
+ {w:"enquiry",  pos:"noun", def:"A question asking for information.", ex:"I received an enquiry from a new customer."},
+ {w:"refund",   pos:"noun (also verb)", def:"Money that you give back to a customer.", ex:"The product was broken, so we gave the customer a refund."},
+ {w:"budget",   pos:"noun", def:"The amount of money you plan to spend.", ex:"Our budget for this project is €5,000."}
+];
+const DEF = Object.fromEntries(VOCAB.map(v => [v.w, v.def]));
+
+/* [word, isTrue (1/0), statement] — pool of 60: 33 true, 27 false */
+const TF = [
+ ["quote",1,"A quote tells the customer how much something will cost."],
+ ["quote",1,"You can ask a supplier for a quote before you buy."],
+ ["quote",0,"A quote is a place where you keep your products."],
+ ["invoice",1,"An invoice asks a customer to pay money."],
+ ["invoice",1,"An invoice shows what the customer bought and the price."],
+ ["invoice",0,"An invoice is a free gift for customers."],
+ ["discount",1,"A discount makes the price lower."],
+ ["discount",1,"Many shops give a discount on big orders."],
+ ["discount",0,"A discount makes the product more expensive."],
+ ["deadline",1,"A deadline is the last time to finish a job."],
+ ["deadline",1,"If the deadline is Friday, you must finish by Friday."],
+ ["deadline",0,"A deadline is a type of lunch meeting."],
+ ["delivery",1,"Delivery means taking products to the customer."],
+ ["delivery",1,"A late delivery can make customers unhappy."],
+ ["delivery",0,"Delivery means making the product in a factory."],
+ ["order",1,"When a customer places an order, they ask to buy something."],
+ ["order",1,"An order can be for one product or for many products."],
+ ["order",0,"An order is a free sample that the customer takes home."],
+ ["offer",1,"An offer is something you propose to a customer, like a special price."],
+ ["offer",1,"A good offer can help you win a new customer."],
+ ["offer",0,"An offer is a document that shows you have paid."],
+ ["brochure",1,"A brochure gives information about products or services."],
+ ["brochure",1,"Sales people often give brochures to customers at meetings."],
+ ["brochure",0,"A brochure is a machine that makes products."],
+ ["deal",1,"When both sides agree on the price, you have a deal."],
+ ["deal",1,"Closing a deal means finishing the agreement successfully."],
+ ["deal",0,"A deal is a product that nobody wants to buy."],
+ ["target",1,"A sales target is the number you want to reach."],
+ ["target",1,"Our target this month is 50 new customers."],
+ ["target",0,"A target is a place where you store products."],
+ ["profit",1,"Profit is the money you keep after paying all the costs."],
+ ["profit",1,"A company makes a profit when it earns more than it spends."],
+ ["profit",0,"If a company spends more money than it earns, it makes a big profit."],
+ ["stock",1,"Stock means the products a shop has ready to sell."],
+ ["stock",1,"If an item is out of stock, you cannot buy it now."],
+ ["stock",0,"Stock is the person who buys your products."],
+ ["payment",1,"Payment is money that you give for something you buy."],
+ ["payment",1,"You can make a payment by bank transfer or credit card."],
+ ["payment",0,"Payment is a free gift from the supplier."],
+ ["contract",1,"A contract is a written agreement between two sides."],
+ ["contract",0,"It is a good idea to sign a contract without reading it."],
+ ["contract",0,"A contract is a small example of a product."],
+ ["supplier",1,"A supplier is a company that sells goods to other businesses."],
+ ["supplier",0,"A supplier is the person who buys the product in a shop."],
+ ["supplier",0,"A supplier is a type of discount."],
+ ["sample",1,"A sample is a small example of a product for the customer to try."],
+ ["sample",0,"A sample is the total money a company makes in a year."],
+ ["sample",0,"A sample is a legal document with signatures."],
+ ["warranty",1,"A warranty promises that the company will repair or replace a faulty product."],
+ ["warranty",0,"A warranty is the last day you can pay an invoice."],
+ ["warranty",0,"A warranty means the product has no price."],
+ ["enquiry",1,"An enquiry is a question asking for information about a product or service."],
+ ["enquiry",0,"An enquiry is the money you give back to the customer."],
+ ["enquiry",0,"An enquiry is a list of all the products in stock."],
+ ["refund",1,"A refund is money that you give back to a customer."],
+ ["refund",0,"A refund is a discount you get before you buy."],
+ ["refund",0,"A refund means the customer pays double."],
+ ["budget",1,"A budget is the amount of money you plan to spend."],
+ ["budget",0,"A budget is a place where customers wait for the manager."],
+ ["budget",0,"Your budget is the profit you make from a sale."]
+];
+
+/* ---------- HELPERS ---------- */
+const $ = s => document.querySelector(s);
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const shuffle = a => { const r = a.slice(); for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]];} return r; };
+const hl = (text, word) => esc(text).replace(new RegExp("\\b("+word+")(s?)\\b","i"), "<mark>$1$2</mark>");
+
+/* ---------- TABS ---------- */
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("active", x === b));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === b.dataset.tab));
+  window.scrollTo({top:0});
+}));
+
+/* ---------- PART 1: FLASH CARDS ---------- */
+let deck = VOCAB.slice(), ci = 0;
+const card = $("#card");
+function fcRender(){
+  const v = deck[ci];
+  $("#fc-word").textContent = v.w;
+  $("#fc-pos").textContent = v.pos;
+  $("#fc-bw").textContent = v.w;
+  $("#fc-def").textContent = v.def;
+  $("#fc-ex").innerHTML = hl(v.ex, v.w);
+  $("#fc-count").textContent = (ci+1) + " / " + deck.length;
+  $("#fc-bar").style.width = ((ci+1)/deck.length*100) + "%";
+}
+function fcGo(d){
+  const flipped = card.classList.contains("flipped");
+  card.classList.remove("flipped");
+  setTimeout(() => { ci = (ci + d + deck.length) % deck.length; fcRender(); }, flipped ? 220 : 0);
+}
+card.addEventListener("click", () => card.classList.toggle("flipped"));
+card.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); card.classList.toggle("flipped"); }});
+$("#fc-prev").onclick = () => fcGo(-1);
+$("#fc-next").onclick = () => fcGo(1);
+$("#fc-shuffle").onclick = () => { card.classList.remove("flipped"); deck = shuffle(VOCAB); ci = 0; setTimeout(fcRender, 200); };
+document.addEventListener("keydown", e => {
+  if(!$("#flash").classList.contains("active")) return;
+  if(e.key === "ArrowRight") fcGo(1);
+  if(e.key === "ArrowLeft") fcGo(-1);
+});
+if("speechSynthesis" in window){
+  $("#speak").addEventListener("click", e => {
+    e.stopPropagation();
+    const u = new SpeechSynthesisUtterance(deck[ci].w); u.lang = "en-GB"; u.rate = .85;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  });
+} else { $("#speak").hidden = true; }
+fcRender();
+
+/* ---------- PART 2: TRUE / FALSE ---------- */
+const POOL_T = TF.filter(x => x[1]), POOL_F = TF.filter(x => !x[1]);
+let round = [], qi = 0, score = 0, wrongs = [];
+function startQuiz(){
+  const nT = 10 + Math.floor(Math.random()*3);          // 10, 11 or 12 true  -> 10, 9 or 8 false
+  round = shuffle([...shuffle(POOL_T).slice(0,nT), ...shuffle(POOL_F).slice(0,20-nT)]);
+  qi = 0; score = 0; wrongs = [];
+  renderQ();
+}
+function renderQ(){
+  const box = $("#tf-box"), [w,,st] = round[qi];
+  box.innerHTML =
+    '<div class="tf-progress"><span>Question '+(qi+1)+' of 20</span><span>Score: '+score+'</span></div>'+
+    '<div class="bar"><i style="width:'+(qi/20*100)+'%"></i></div>'+
+    '<div class="tf-card"><p class="statement">'+hl(st,w)+'</p>'+
+    '<div class="tf-btns"><button class="btn-true" data-a="1">&#10004; True</button><button class="btn-false" data-a="0">&#10008; False</button></div>'+
+    '<div class="feedback" id="fb" hidden></div>'+
+    '<button class="primary next" id="nextq" hidden>'+(qi===19?"See my score":"Next &#8594;")+'</button></div>';
+  box.querySelectorAll("[data-a]").forEach(b => b.onclick = () => answer(b));
+}
+function answer(btn){
+  const [w,val,st] = round[qi];
+  const said = btn.dataset.a === "1", right = said === !!val;
+  document.querySelectorAll(".tf-btns button").forEach(b => {
+    b.disabled = true;
+    if((b.dataset.a === "1") === !!val) b.classList.add("right");
+  });
+  if(!right) btn.classList.add("wrong");
+  if(right) score++; else wrongs.push(round[qi]);
+  const fb = $("#fb");
+  fb.hidden = false;
+  fb.className = "feedback " + (right ? "ok" : "no");
+  fb.innerHTML = '<b>'+(right ? "Correct!" : "Not quite. This statement is "+(val?"TRUE":"FALSE")+".")+'</b>'+
+                 '<small><b>'+w+'</b>: '+esc(DEF[w])+'</small>';
+  const nx = $("#nextq"); nx.hidden = false; nx.focus();
+  nx.onclick = () => { qi++; qi < 20 ? renderQ() : finishQuiz(); };
+}
+function finishQuiz(){
+  const msg = score>=18 ? "Excellent! You know these words very well." :
+              score>=14 ? "Good work! Look at the flash cards again for the words you missed." :
+              score>=10 ? "Not bad. Practise the flash cards and try again." :
+                          "Keep practising! Go back to the flash cards, then play again.";
+  $("#tf-box").innerHTML =
+    '<div class="tf-card center"><div class="big">'+score+' / 20</div><p><b>'+msg+'</b></p>'+
+    (wrongs.length ? '<h3>Review your mistakes</h3><ul class="review">'+wrongs.map(x =>
+       '<li>'+hl(x[2],x[0])+' <b>&rarr; '+(x[1]?"True":"False")+'</b></li>').join("")+'</ul>' : '<p>&#127942; No mistakes!</p>')+
+    '<button class="primary" id="again">Play again &mdash; new random questions</button></div>';
+  $("#again").onclick = startQuiz;
+}
+startQuiz();
+
+/* ---------- DRAG AND DROP ENGINE ---------- */
+function initDnD(root, words){
+  const bank = root.querySelector(".bank");
+  const result = root.querySelector(".result");
+  const slots = () => [...root.querySelectorAll(".slot")];
+  let selected = null;
+
+  function deselect(){ if(selected) selected.classList.remove("selected"); selected = null; root.classList.remove("has-selection"); }
+  function say(text, cls){ if(result){ result.textContent = text; result.className = "result " + (cls||""); } }
+  function resetStatus(){ slots().forEach(s => s.classList.remove("ok","bad")); }
+
+  function makeChip(w){
+    const c = document.createElement("span");
+    c.className = "chip"; c.textContent = w; c.dataset.word = w; c.tabIndex = 0; c.setAttribute("role","button");
+    c.addEventListener("pointerdown", e => onDown(e,c));
+    c.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); tap(c); }});
+    return c;
+  }
+  function build(){
+    deselect(); bank.innerHTML = "";
+    slots().forEach(s => { s.innerHTML = ""; s.classList.remove("ok","bad"); s.tabIndex = 0; });
+    shuffle(words).forEach(w => bank.appendChild(makeChip(w)));
+    say("");
+  }
+  function place(chip, slot){
+    const from = chip.parentElement, existing = slot.querySelector(".chip");
+    if(existing === chip){ deselect(); return; }
+    if(existing) (from.classList.contains("slot") ? from : bank).appendChild(existing);
+    slot.appendChild(chip);
+    [from, slot].forEach(s => s.classList && s.classList.remove("ok","bad"));
+    deselect();
+  }
+  function toBank(chip){
+    const from = chip.parentElement;
+    bank.appendChild(chip);
+    if(from.classList.contains("slot")) from.classList.remove("ok","bad");
+    deselect();
+  }
+  function tap(chip){
+    const par = chip.parentElement;
+    if(selected && selected !== chip && par.classList.contains("slot")){ place(selected, par); return; }
+    if(selected === chip){ deselect(); return; }
+    deselect(); selected = chip; chip.classList.add("selected"); root.classList.add("has-selection");
+  }
+  function drop(chip, t){
+    if(!t) return;
+    const slot = t.closest(".slot");
+    if(slot && root.contains(slot)){ place(chip, slot); return; }
+    if(bank.contains(t) || t === bank) toBank(chip);
+  }
+  function onDown(e, chip){
+    if(e.pointerType === "mouse" && e.button !== 0) return;
+    const sx = e.clientX, sy = e.clientY, r = chip.getBoundingClientRect(), ox = sx - r.left, oy = sy - r.top;
+    let ghost = null, dragging = false, over = null;
+    try{ chip.setPointerCapture(e.pointerId); }catch(_){}
+    const move = ev => {
+      if(!dragging){
+        if(Math.hypot(ev.clientX-sx, ev.clientY-sy) < 6) return;
+        dragging = true;
+        ghost = chip.cloneNode(true); ghost.classList.remove("selected"); ghost.classList.add("ghost");
+        document.body.appendChild(ghost); chip.classList.add("dragging");
+      }
+      ghost.style.left = (ev.clientX - ox) + "px"; ghost.style.top = (ev.clientY - oy) + "px";
+      if(ev.clientY < 70) window.scrollBy(0,-14); else if(ev.clientY > innerHeight - 70) window.scrollBy(0,14);
+      const t = document.elementFromPoint(ev.clientX, ev.clientY);
+      let z = t && (t.closest(".slot") || t.closest(".bank"));
+      if(z && !root.contains(z)) z = null;
+      if(over !== z){ if(over) over.classList.remove("over"); over = z; if(over) over.classList.add("over"); }
+    };
+    const end = ev => {
+      chip.removeEventListener("pointermove", move);
+      chip.removeEventListener("pointerup", end);
+      chip.removeEventListener("pointercancel", end);
+      try{ chip.releasePointerCapture(e.pointerId); }catch(_){}
+      if(over) over.classList.remove("over");
+      if(dragging){
+        ghost.remove(); chip.classList.remove("dragging");
+        if(ev.type === "pointerup") drop(chip, document.elementFromPoint(ev.clientX, ev.clientY));
+      } else if(ev.type === "pointerup"){ tap(chip); }
+    };
+    chip.addEventListener("pointermove", move);
+    chip.addEventListener("pointerup", end);
+    chip.addEventListener("pointercancel", end);
+  }
+
+  root.addEventListener("click", e => {
+    if(e.target.closest(".chip")) return;
+    const slot = e.target.closest(".slot");
+    if(slot && selected){ place(selected, slot); return; }
+    if(selected && e.target.closest(".bank")) toBank(selected);
+  });
+  root.addEventListener("keydown", e => {
+    const slot = e.target.classList && e.target.classList.contains("slot") ? e.target : null;
+    if(slot && selected && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); place(selected, slot); }
+  });
+
+  const api = {
+    build,
+    check(){
+      let ok = 0, empty = 0; const all = slots();
+      all.forEach(s => {
+        s.classList.remove("ok","bad");
+        const c = s.querySelector(".chip");
+        if(!c){ empty++; return; }
+        if(c.dataset.word === s.dataset.answer){ s.classList.add("ok"); ok++; } else s.classList.add("bad");
+      });
+      const txt = ok + " / " + all.length + " correct" + (empty ? " (" + empty + " still empty)" : "") + ".";
+      say(ok === all.length ? "🎉 " + txt + " Well done!" : txt, ok === all.length ? "good" : ok >= all.length*0.6 ? "mid" : "low");
+    },
+    retry(){
+      slots().forEach(s => { const c = s.querySelector(".chip"); if(s.classList.contains("bad") && c) bank.appendChild(c); s.classList.remove("ok","bad"); });
+      deselect(); say("Move the wrong words to a new place, then check again.");
+    },
+    reveal(){
+      const chips = [...root.querySelectorAll(".chip")];
+      chips.forEach(c => bank.appendChild(c));
+      slots().forEach(s => { const c = chips.find(x => x.dataset.word === s.dataset.answer); if(c){ s.appendChild(c); s.classList.add("ok"); } });
+      deselect(); say("Here are the correct answers.");
+    }
+  };
+  root.querySelectorAll("[data-act]").forEach(b => b.addEventListener("click", () => api[b.dataset.act]()));
+  return api;
+}
+
+/* ---------- PART 3: MATCH ---------- */
+const matchRoot = $("#match");
+const matchDnD = initDnD(matchRoot, VOCAB.map(v => v.w));
+const origBuild = matchDnD.build;
+function buildMatch(){
+  $("#defs").innerHTML = shuffle(VOCAB).map(v =>
+    '<div class="def-row"><span class="slot" data-answer="'+v.w+'" data-ph="Drop word here"></span><p>'+esc(v.def)+'</p></div>').join("");
+  origBuild();
+}
+matchRoot.querySelector('[data-act="build"]').addEventListener("click", buildMatch);
+buildMatch();
+
+/* ---------- PART 4: EMAILS ---------- */
+const emailWords = ["enquiry","brochure","budget","quote","deadline","sample",
+                    "stock","offer","discount","delivery","warranty","order",
+                    "refund","profit","target","supplier"];
+initDnD($("#emails"), emailWords).build();
+</script>
+</body>
+</html>

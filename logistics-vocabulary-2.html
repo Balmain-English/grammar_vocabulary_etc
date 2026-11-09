@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logistics English Vocabulary – B1-B2</title>
+<style>
+:root{
+  --navy:#17335c; --blue:#2563a8; --teal:#0e9488; --amber:#f5a623;
+  --bg:#f3f6fb; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7c; --line:#d5deea;
+  --ok:#1f9d5a; --okbg:#e6f6ec; --bad:#d6404b; --badbg:#fdeaec;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;font-size:17px}
+[hidden]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:26px 0 22px}
+header.top h1{margin:0;font-size:1.9rem;letter-spacing:.2px}
+header.top h1 span{color:#8fe3da}
+header.top p{margin:4px 0 0;opacity:.9}
+nav.tabs{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(23,51,92,.06)}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.tab{flex:1 0 auto;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.tab b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#e4ebf5;color:var(--navy);margin-right:8px;font-size:.85rem}
+.tab:hover{background:#eef3fa}
+.tab.active{background:var(--navy);color:#fff}
+.tab.active b{background:var(--teal);color:#fff}
+main{padding:26px 0 50px}
+.panel{display:none}
+.panel.active{display:block}
+h2{margin:0 0 4px;color:var(--navy);font-size:1.5rem}
+.intro{margin:0 0 20px;color:var(--muted)}
+mark{background:#fff0c7;color:inherit;border-radius:4px;padding:0 3px;font-weight:700}
+button{font:inherit}
+.btn,.primary{border:2px solid var(--blue);background:#fff;color:var(--blue);padding:9px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn:hover{background:#eaf2fc}
+.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.primary:hover{background:#0b7a70}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.result{margin-top:14px;font-weight:700;min-height:1.4em}
+.result.good{color:var(--ok)} .result.mid{color:#b86e00} .result.low{color:var(--bad)}
+.progress{color:var(--muted);font-size:.9rem}
+
+/* flash cards */
+.scene{perspective:1200px;max-width:580px;margin:0 auto}
+.card3d{position:relative;height:310px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1);cursor:pointer;outline:none}
+.card3d:focus-visible{outline:3px solid var(--amber);outline-offset:6px;border-radius:22px}
+.card3d.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px;text-align:center;box-shadow:0 10px 30px rgba(23,51,92,.18)}
+.front{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.front .word{font-size:3rem;font-weight:800;letter-spacing:.5px}
+.front .pos{opacity:.8;font-style:italic;margin-top:4px}
+.front .hint{position:absolute;bottom:16px;font-size:.85rem;opacity:.7}
+.speak{position:absolute;top:14px;right:14px;border:0;background:rgba(255,255,255,.18);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.speak:hover{background:rgba(255,255,255,.3)}
+.back{background:#fff;border:3px solid var(--teal);transform:rotateY(180deg)}
+.back .bw{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem}
+.back .def{font-size:1.45rem;font-weight:700;color:var(--navy);margin:8px 0 14px;line-height:1.3}
+.back .ex{background:#f3f8fb;border-left:4px solid var(--amber);padding:10px 14px;border-radius:8px;text-align:left;font-style:italic;color:#33475b}
+.fc-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.fc-bar{max-width:580px;margin:22px auto 0;height:8px;background:#dde6f2;border-radius:99px;overflow:hidden}
+.fc-bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+#fc-count{font-weight:700;color:var(--navy);min-width:70px;text-align:center}
+
+/* true / false */
+.tf-wrap{max-width:680px;margin:0 auto}
+.tf-progress{display:flex;justify-content:space-between;font-weight:700;color:var(--navy);margin-bottom:8px}
+.bar{height:8px;background:#dde6f2;border-radius:99px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--teal);transition:width .3s}
+.tf-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:0 6px 20px rgba(23,51,92,.08)}
+.tf-card.center{text-align:center}
+.statement{font-size:1.4rem;font-weight:600;color:var(--navy);margin:0 0 24px;line-height:1.4}
+.tf-btns{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tf-btns button{padding:16px;border-radius:14px;border:3px solid;font-weight:800;font-size:1.15rem;cursor:pointer;background:#fff;transition:.15s}
+.btn-true{border-color:var(--ok);color:var(--ok)} .btn-true:hover:not(:disabled){background:var(--okbg)}
+.btn-false{border-color:var(--bad);color:var(--bad)} .btn-false:hover:not(:disabled){background:var(--badbg)}
+.tf-btns button:disabled{cursor:default;opacity:.55}
+.tf-btns button.right{opacity:1;background:var(--ok);border-color:var(--ok);color:#fff}
+.tf-btns button.wrong{opacity:1;background:var(--bad);border-color:var(--bad);color:#fff}
+.feedback{margin-top:20px;padding:14px 16px;border-radius:12px;background:#f3f8fb;border-left:5px solid var(--teal)}
+.feedback.ok{background:var(--okbg);border-color:var(--ok)}
+.feedback.no{background:var(--badbg);border-color:var(--bad)}
+.feedback small{display:block;color:var(--muted);margin-top:4px}
+.next{margin-top:18px;float:right}
+.tf-card::after{content:"";display:block;clear:both}
+.big{font-size:4rem;font-weight:800;color:var(--teal);line-height:1.1}
+.review{text-align:left;padding-left:20px}
+.review li{margin-bottom:8px}
+
+/* drag and drop */
+.chip{display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;background:#fff;border:2px solid var(--blue);color:var(--navy);font-weight:700;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;line-height:1.3;transition:box-shadow .15s}
+.chip:hover{box-shadow:0 3px 10px rgba(37,99,168,.25)}
+.chip.selected{outline:3px solid var(--amber);outline-offset:1px;background:#fff8e6}
+.chip.dragging{opacity:.3}
+.chip.ghost{position:fixed;z-index:9999;pointer-events:none;margin:0;box-shadow:0 10px 25px rgba(0,0,0,.3);transform:rotate(-3deg);cursor:grabbing}
+.bank{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:2px dashed transparent;border-radius:12px;min-height:56px}
+.bank.over{border-color:var(--teal);background:#e3f6f3}
+.bank-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:0 4px 14px rgba(23,51,92,.08)}
+.bank-wrap h3{margin:2px 4px 2px;font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+.slot{display:inline-flex;align-items:center;justify-content:center;min-width:120px;min-height:38px;border:2px dashed #9fb4d0;border-radius:10px;background:#eef3fa;padding:2px 4px;vertical-align:middle;transition:.15s;outline:none}
+.slot:empty::before{content:attr(data-ph);color:#6f84a0;font-size:.85rem;font-weight:700}
+.slot:not(:empty){border-style:solid;background:#fff}
+.slot:focus-visible{outline:3px solid var(--amber)}
+.slot.over{border-color:var(--teal);background:#dff5f2}
+.has-selection .slot:empty{border-color:var(--amber)}
+.slot.ok{border-color:var(--ok);background:var(--okbg)}
+.slot.bad{border-color:var(--bad);background:var(--badbg)}
+.slot .chip{border-color:transparent;background:transparent;padding:4px 10px}
+.slot.ok .chip{color:#14693b}
+.slot.bad .chip{color:#a02530}
+
+.match-layout{display:grid;grid-template-columns:1fr 290px;gap:20px;align-items:start}
+.match-layout .bank-wrap{position:sticky;top:72px}
+.defs{display:grid;gap:10px}
+.def-row{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.def-row .slot{flex:0 0 175px}
+.def-row p{margin:0}
+
+/* emails */
+.email-bank{margin-bottom:20px}
+@media (min-width:800px) and (min-height:720px){.email-bank{position:sticky;top:64px;z-index:20}}
+.email{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 20px rgba(23,51,92,.08);margin-bottom:24px;overflow:hidden}
+.email-label{background:var(--navy);color:#fff;padding:8px 18px;font-weight:700;font-size:.9rem;letter-spacing:.5px}
+.email-head{background:#f4f7fb;border-bottom:1px solid var(--line);padding:12px 18px;font-size:.95rem}
+.email-head div{display:flex;gap:10px;padding:2px 0}
+.email-head span{flex:0 0 66px;color:var(--muted);font-weight:700}
+.email-head .subj{font-weight:700;color:var(--navy)}
+.email-body{padding:18px 22px 22px;line-height:2.3}
+.email-body p{margin:0 0 10px}
+.email-body .sig{line-height:1.5;margin-top:14px;color:var(--navy)}
+.email-body .slot{min-width:118px;margin:0 3px}
+
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:0 18px 30px}
+
+@media (max-width:800px){
+  body{font-size:16px}
+  header.top h1{font-size:1.5rem}
+  .match-layout{grid-template-columns:1fr}
+  .match-layout .bank-wrap{position:static;order:-1}
+  .def-row{flex-direction:column;align-items:stretch;gap:8px}
+  .def-row .slot{flex:none;width:100%}
+  .card3d{height:290px}
+  .front .word{font-size:2.4rem}
+  .statement{font-size:1.2rem}
+  .email-body{padding:14px;line-height:2.4}
+}
+@media (prefers-reduced-motion:reduce){.card3d{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Logistics English <span>Vocabulary</span></h1>
+    <p>Level B1&ndash;B2 &middot; 20 key words for logistics professionals</p>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap">
+  <button class="tab active" data-tab="flash"><b>1</b>Flash cards</button>
+  <button class="tab" data-tab="tf"><b>2</b>True or False</button>
+  <button class="tab" data-tab="match"><b>3</b>Match</button>
+  <button class="tab" data-tab="emails"><b>4</b>Emails</button>
+</div></nav>
+
+<main class="wrap">
+
+<!-- PART 1 -->
+<section id="flash" class="panel active">
+  <h2>Part 1 &middot; Flash cards</h2>
+  <p class="intro">Read the word. Click the card to see the meaning and an example. Use the arrows to move on.</p>
+  <div class="scene">
+    <div class="card3d" id="card" tabindex="0" role="button" aria-label="Flash card. Press Enter to flip.">
+      <div class="face front">
+        <button class="speak" id="speak" title="Listen" aria-label="Listen to the word">&#128266;</button>
+        <div class="word" id="fc-word"></div>
+        <div class="pos" id="fc-pos"></div>
+        <div class="hint">Click to flip &#8635;</div>
+      </div>
+      <div class="face back">
+        <div class="bw" id="fc-bw"></div>
+        <div class="def" id="fc-def"></div>
+        <div class="ex" id="fc-ex"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn" id="fc-prev">&#8592; Back</button>
+    <span id="fc-count"></span>
+    <button class="btn" id="fc-next">Next &#8594;</button>
+    <button class="btn" id="fc-shuffle">&#128256; Shuffle</button>
+  </div>
+  <div class="fc-bar"><i id="fc-bar"></i></div>
+</section>
+
+<!-- PART 2 -->
+<section id="tf" class="panel">
+  <h2>Part 2 &middot; True or False?</h2>
+  <p class="intro">Read each statement. Is it true or false? You get 20 new questions every time you play.</p>
+  <div class="tf-wrap" id="tf-box"></div>
+</section>
+
+<!-- PART 3 -->
+<section id="match" class="panel dnd">
+  <h2>Part 3 &middot; Match the words</h2>
+  <p class="intro">Drag each word to its meaning. On a phone or tablet you can also tap a word, then tap the box.</p>
+  <div class="match-layout">
+    <div class="defs" id="defs"></div>
+    <aside class="bank-wrap"><h3>Words</h3><div class="bank"></div></aside>
+  </div>
+  <div class="toolbar">
+    <button class="primary" data-act="check">Check answers</button>
+    <button class="btn" data-act="retry">Try again (wrong ones)</button>
+    <button class="btn" data-act="reveal">Show answers</button>
+    <button class="btn" data-act="build">Start again</button>
+  </div>
+  <div class="result" aria-live="polite"></div>
+</section>
+
+<!-- PART 4 -->
+<section id="emails" class="panel dnd">
+  <h2>Part 4 &middot; Complete the emails</h2>
+  <p class="intro">Read the two emails. Drag a word into each gap. Careful: there are 16 words but only 12 gaps!</p>
+  <div class="bank-wrap email-bank"><h3>Word list</h3><div class="bank"></div></div>
+
+  <div class="email">
+    <div class="email-label">&#9993; Email 1 &mdash; Enquiry</div>
+    <div class="email-head">
+      <div><span>From:</span> Claire Dubois &lt;claire.dubois@verdefresh.example&gt;</div>
+      <div><span>To:</span> James Walker &lt;james.walker@coldroute.example&gt;</div>
+      <div><span>Date:</span> Mon 9 November 2026, 09:15</div>
+      <div><span>Subject:</span> <span class="subj" style="flex:1">Refrigerated transport from Lyon to Germany</span></div>
+    </div>
+    <div class="email-body">
+      <p>Dear Mr Walker,</p>
+      <p>I am writing to ask about your transport services. We are reviewing our whole <span class="slot" data-answer="supply chain" data-ph="1"></span>, from the farms to the supermarkets, and we are looking for a new <span class="slot" data-answer="carrier" data-ph="2"></span> to deliver fresh vegetables from our warehouse in Lyon to supermarkets in Germany.</p>
+      <p>Because our products are <span class="slot" data-answer="perishable" data-ph="3"></span>, we need refrigerated trucks and a short <span class="slot" data-answer="lead time" data-ph="4"></span>: we would like to book the transport only 24 hours before each <span class="slot" data-answer="consignment" data-ph="5"></span> leaves. Could you also tell us whether your price includes <span class="slot" data-answer="insurance" data-ph="6"></span> in case the goods are damaged or lost?</p>
+      <p>I look forward to receiving your rates.</p>
+      <div class="sig">Kind regards,<br><b>Claire Dubois</b><br>Purchasing Manager, Verde Fresh</div>
+    </div>
+  </div>
+
+  <div class="email">
+    <div class="email-label">&#8617; Email 2 &mdash; Response</div>
+    <div class="email-head">
+      <div><span>From:</span> James Walker &lt;james.walker@coldroute.example&gt;</div>
+      <div><span>To:</span> Claire Dubois &lt;claire.dubois@verdefresh.example&gt;</div>
+      <div><span>Date:</span> Mon 9 November 2026, 14:30</div>
+      <div><span>Subject:</span> <span class="subj" style="flex:1">RE: Refrigerated transport from Lyon to Germany</span></div>
+    </div>
+    <div class="email-body">
+      <p>Dear Ms Dubois,</p>
+      <p>Thank you for your enquiry. We would be pleased to work with you. We can <span class="slot" data-answer="dispatch" data-ph="7"></span> a refrigerated truck within 24 hours of your booking, and the average <span class="slot" data-answer="transit" data-ph="8"></span> time to Germany is 18 hours.</p>
+      <p>Our standard rates are attached. Please note that a <span class="slot" data-answer="surcharge" data-ph="9"></span> of 8% applies in winter because of higher fuel costs. Thanks to our online <span class="slot" data-answer="traceability" data-ph="10"></span> system, you can follow every delivery in real time.</p>
+      <p>Our own drivers also handle the <span class="slot" data-answer="last mile" data-ph="11"></span>, so your goods go directly from our depot to the supermarket's <span class="slot" data-answer="dock" data-ph="12"></span>. Could you tell me how many deliveries you need each week?</p>
+      <div class="sig">Best wishes,<br><b>James Walker</b><br>Account Manager, ColdRoute Transport</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="primary" data-act="check">Check answers</button>
+    <button class="btn" data-act="retry">Try again (wrong ones)</button>
+    <button class="btn" data-act="reveal">Show answers</button>
+    <button class="btn" data-act="build">Start again</button>
+  </div>
+  <div class="result" aria-live="polite"></div>
+</section>
+
+</main>
+<footer>Logistics English Vocabulary &middot; B1&ndash;B2 &middot; Works offline &mdash; no internet needed.</footer>
+
+<script>
+/* ---------- DATA ---------- */
+const VOCAB = [
+ {w:"supply chain", pos:"noun", def:"All the companies, people and steps involved in making a product and delivering it to the customer.", ex:"A problem at one factory can affect the whole supply chain."},
+ {w:"inventory",    pos:"noun", def:"The goods and materials that a company has in stock at a particular time.", ex:"We count our inventory at the end of every month."},
+ {w:"lead time",    pos:"noun", def:"The time between placing an order and receiving the goods.", ex:"The lead time for this part is six weeks."},
+ {w:"consignment",  pos:"noun", def:"A group of goods that is sent to one place at the same time.", ex:"The first consignment of spare parts arrives on Friday."},
+ {w:"carrier",      pos:"noun", def:"A company that transports goods from one place to another.", ex:"We chose a carrier that offers next-day delivery."},
+ {w:"dispatch",     pos:"verb (also noun)", def:"To send goods or a vehicle off to a place.", ex:"We dispatch all orders before 4 p.m."},
+ {w:"backlog",      pos:"noun", def:"A pile of work or orders that has not been dealt with yet.", ex:"After the holiday, we had a backlog of 300 orders."},
+ {w:"bottleneck",   pos:"noun", def:"A point in a process where things slow down because there is too much work.", ex:"The loading area is a bottleneck during busy periods."},
+ {w:"tariff",       pos:"noun", def:"A tax that a government puts on goods coming into a country.", ex:"The new tariff makes imported steel more expensive."},
+ {w:"shortage",     pos:"noun", def:"A situation when there is not enough of something that people need.", ex:"A driver shortage is causing late deliveries."},
+ {w:"outsource",    pos:"verb", def:"To pay another company to do work for you instead of doing it yourself.", ex:"Many firms outsource their transport to specialist companies."},
+ {w:"restock",      pos:"verb", def:"To fill a shop or warehouse with new goods again.", ex:"We restock the shelves every night."},
+ {w:"fulfilment",   pos:"noun", def:"The process of receiving, packing and delivering customers' orders.", ex:"Our fulfilment centre handles 10,000 orders a day."},
+ {w:"perishable",   pos:"adjective", def:"Likely to go bad quickly, like fresh food.", ex:"Perishable goods must be delivered in a refrigerated truck."},
+ {w:"transit",      pos:"noun", def:"The movement of goods from one place to another.", ex:"The parcel was damaged while it was in transit."},
+ {w:"surcharge",    pos:"noun", def:"An extra amount of money added to the normal price.", ex:"The carrier adds a fuel surcharge in winter."},
+ {w:"insurance",    pos:"noun", def:"An agreement where a company pays you money if your goods are lost or damaged.", ex:"The insurance covers the full value of the shipment."},
+ {w:"dock",         pos:"noun", def:"The area where ships or trucks load and unload goods.", ex:"Trucks wait at the dock until a bay is free."},
+ {w:"traceability", pos:"noun", def:"The ability to follow a product's journey from its origin to the customer.", ex:"Good traceability helps us find a problem quickly."},
+ {w:"last mile",    pos:"noun", def:"The final part of a delivery, from the local depot to the customer's door.", ex:"The last mile is often the most expensive part of delivery."}
+];
+const DEF = Object.fromEntries(VOCAB.map(v => [v.w, v.def]));
+
+/* [word, isTrue (1/0), statement] — pool of 60: 33 true, 27 false */
+const TF = [
+ ["supply chain",1,"A supply chain includes every step from raw materials to the final customer."],
+ ["supply chain",1,"A problem at one supplier can affect the whole supply chain."],
+ ["supply chain",0,"A supply chain is the list of products that a shop sells."],
+ ["inventory",1,"Inventory is the amount of goods a company has in stock."],
+ ["inventory",1,"Counting the inventory helps a company to avoid running out of products."],
+ ["inventory",0,"Inventory is the money a company receives from its customers."],
+ ["lead time",1,"The lead time is the period between ordering goods and receiving them."],
+ ["lead time",1,"A shorter lead time means customers wait less for their orders."],
+ ["lead time",0,"The lead time is the number of kilos a truck can carry."],
+ ["consignment",1,"A consignment is a group of goods sent to one destination together."],
+ ["consignment",1,"The customer should check the consignment as soon as it arrives."],
+ ["consignment",0,"A consignment is a tax that a customer pays at the border."],
+ ["carrier",1,"A carrier is a company that transports goods from one place to another."],
+ ["carrier",1,"Shippers often compare carriers to find the best price and service."],
+ ["carrier",0,"A carrier is a machine that prints shipping labels."],
+ ["dispatch",1,"When you dispatch an order, you send it to the customer."],
+ ["dispatch",1,"Most online shops try to dispatch orders on the same day."],
+ ["dispatch",0,"To dispatch goods means to keep them in the warehouse for a long time."],
+ ["backlog",1,"A backlog is a pile of orders that have not been processed yet."],
+ ["backlog",1,"A backlog can grow when a warehouse has too few workers."],
+ ["backlog",0,"A backlog is a special discount for regular customers."],
+ ["bottleneck",1,"A bottleneck is a point where a process slows down."],
+ ["bottleneck",1,"One slow machine can create a bottleneck in the whole warehouse."],
+ ["bottleneck",0,"A bottleneck is a fast delivery service for urgent parcels."],
+ ["tariff",1,"A tariff is a tax on goods that enter a country."],
+ ["tariff",1,"A higher tariff can make imported products more expensive."],
+ ["tariff",0,"A tariff is a document that shows the weight of a pallet."],
+ ["shortage",1,"A shortage means there is not enough of something."],
+ ["shortage",1,"A shortage of drivers can cause late deliveries."],
+ ["shortage",0,"A shortage means that a warehouse is completely full."],
+ ["outsource",1,"Some companies outsource their transport to a specialist carrier."],
+ ["outsource",1,"When a company decides to outsource, another company does the work for it."],
+ ["outsource",0,"To outsource a job means to do it yourself with your own staff."],
+ ["restock",1,"Shops restock their shelves when products are sold out."],
+ ["restock",1,"We need to restock the warehouse before the busy season."],
+ ["restock",0,"To restock means to send damaged goods back to the supplier."],
+ ["fulfilment",1,"Order fulfilment includes picking, packing and delivering the goods."],
+ ["fulfilment",1,"A fulfilment centre prepares orders for online shoppers."],
+ ["fulfilment",0,"Fulfilment is the tax paid on imported goods."],
+ ["perishable",1,"Perishable goods, such as fresh fish, must be delivered quickly."],
+ ["perishable",0,"Perishable products can be stored for years without any problem."],
+ ["perishable",0,"Perishable means that an item is too heavy to be moved by hand."],
+ ["transit",1,"Goods that are in transit are travelling from the sender to the customer."],
+ ["transit",0,"Goods in transit are stored safely in the warehouse."],
+ ["transit",0,"Transit is the document that a customer signs after delivery."],
+ ["surcharge",1,"A surcharge is an extra amount added to the normal price."],
+ ["surcharge",0,"A surcharge is a discount for large orders."],
+ ["surcharge",0,"A surcharge is the money you get back if the delivery is late."],
+ ["insurance",1,"Insurance can pay for goods that are lost or damaged during transport."],
+ ["insurance",0,"Insurance is the legal document that gives permission to drive a truck."],
+ ["insurance",0,"Insurance makes goods travel faster."],
+ ["dock",1,"Trucks arrive at the dock to load or unload goods."],
+ ["dock",0,"A dock is a piece of paper that shows the contents of a parcel."],
+ ["dock",0,"A dock is the office where drivers apply for a job."],
+ ["traceability",1,"Traceability allows a company to follow a product from its origin to the customer."],
+ ["traceability",0,"Traceability means how quickly a parcel is delivered."],
+ ["traceability",0,"Traceability is the amount of money you pay for storage."],
+ ["last mile",1,"The last mile is the final part of the journey to the customer's door."],
+ ["last mile",0,"The last mile is the first stage of a delivery from the factory."],
+ ["last mile",0,"The last mile means the delivery from one country to another."]
+];
+
+/* ---------- HELPERS ---------- */
+const $ = s => document.querySelector(s);
+const esc = t => t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const shuffle = a => { const r = a.slice(); for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]];} return r; };
+const hl = (text, word) => esc(text).replace(new RegExp("\\b("+word+")(s?)\\b","i"), "<mark>$1$2</mark>");
+
+/* ---------- TABS ---------- */
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("active", x === b));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === b.dataset.tab));
+  window.scrollTo({top:0});
+}));
+
+/* ---------- PART 1: FLASH CARDS ---------- */
+let deck = VOCAB.slice(), ci = 0;
+const card = $("#card");
+function fcRender(){
+  const v = deck[ci];
+  $("#fc-word").textContent = v.w;
+  $("#fc-pos").textContent = v.pos;
+  $("#fc-bw").textContent = v.w;
+  $("#fc-def").textContent = v.def;
+  $("#fc-ex").innerHTML = hl(v.ex, v.w);
+  $("#fc-count").textContent = (ci+1) + " / " + deck.length;
+  $("#fc-bar").style.width = ((ci+1)/deck.length*100) + "%";
+}
+function fcGo(d){
+  const flipped = card.classList.contains("flipped");
+  card.classList.remove("flipped");
+  setTimeout(() => { ci = (ci + d + deck.length) % deck.length; fcRender(); }, flipped ? 220 : 0);
+}
+card.addEventListener("click", () => card.classList.toggle("flipped"));
+card.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); card.classList.toggle("flipped"); }});
+$("#fc-prev").onclick = () => fcGo(-1);
+$("#fc-next").onclick = () => fcGo(1);
+$("#fc-shuffle").onclick = () => { card.classList.remove("flipped"); deck = shuffle(VOCAB); ci = 0; setTimeout(fcRender, 200); };
+document.addEventListener("keydown", e => {
+  if(!$("#flash").classList.contains("active")) return;
+  if(e.key === "ArrowRight") fcGo(1);
+  if(e.key === "ArrowLeft") fcGo(-1);
+});
+if("speechSynthesis" in window){
+  $("#speak").addEventListener("click", e => {
+    e.stopPropagation();
+    const u = new SpeechSynthesisUtterance(deck[ci].w); u.lang = "en-GB"; u.rate = .85;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  });
+} else { $("#speak").hidden = true; }
+fcRender();
+
+/* ---------- PART 2: TRUE / FALSE ---------- */
+const POOL_T = TF.filter(x => x[1]), POOL_F = TF.filter(x => !x[1]);
+let round = [], qi = 0, score = 0, wrongs = [];
+function startQuiz(){
+  const nT = 10 + Math.floor(Math.random()*3);          // 10, 11 or 12 true  -> 10, 9 or 8 false
+  round = shuffle([...shuffle(POOL_T).slice(0,nT), ...shuffle(POOL_F).slice(0,20-nT)]);
+  qi = 0; score = 0; wrongs = [];
+  renderQ();
+}
+function renderQ(){
+  const box = $("#tf-box"), [w,,st] = round[qi];
+  box.innerHTML =
+    '<div class="tf-progress"><span>Question '+(qi+1)+' of 20</span><span>Score: '+score+'</span></div>'+
+    '<div class="bar"><i style="width:'+(qi/20*100)+'%"></i></div>'+
+    '<div class="tf-card"><p class="statement">'+hl(st,w)+'</p>'+
+    '<div class="tf-btns"><button class="btn-true" data-a="1">&#10004; True</button><button class="btn-false" data-a="0">&#10008; False</button></div>'+
+    '<div class="feedback" id="fb" hidden></div>'+
+    '<button class="primary next" id="nextq" hidden>'+(qi===19?"See my score":"Next &#8594;")+'</button></div>';
+  box.querySelectorAll("[data-a]").forEach(b => b.onclick = () => answer(b));
+}
+function answer(btn){
+  const [w,val,st] = round[qi];
+  const said = btn.dataset.a === "1", right = said === !!val;
+  document.querySelectorAll(".tf-btns button").forEach(b => {
+    b.disabled = true;
+    if((b.dataset.a === "1") === !!val) b.classList.add("right");
+  });
+  if(!right) btn.classList.add("wrong");
+  if(right) score++; else wrongs.push(round[qi]);
+  const fb = $("#fb");
+  fb.hidden = false;
+  fb.className = "feedback " + (right ? "ok" : "no");
+  fb.innerHTML = '<b>'+(right ? "Correct!" : "Not quite. This statement is "+(val?"TRUE":"FALSE")+".")+'</b>'+
+                 '<small><b>'+w+'</b>: '+esc(DEF[w])+'</small>';
+  const nx = $("#nextq"); nx.hidden = false; nx.focus();
+  nx.onclick = () => { qi++; qi < 20 ? renderQ() : finishQuiz(); };
+}
+function finishQuiz(){
+  const msg = score>=18 ? "Excellent! You know these words very well." :
+              score>=14 ? "Good work! Look at the flash cards again for the words you missed." :
+              score>=10 ? "Not bad. Practise the flash cards and try again." :
+                          "Keep practising! Go back to the flash cards, then play again.";
+  $("#tf-box").innerHTML =
+    '<div class="tf-card center"><div class="big">'+score+' / 20</div><p><b>'+msg+'</b></p>'+
+    (wrongs.length ? '<h3>Review your mistakes</h3><ul class="review">'+wrongs.map(x =>
+       '<li>'+hl(x[2],x[0])+' <b>&rarr; '+(x[1]?"True":"False")+'</b></li>').join("")+'</ul>' : '<p>&#127942; No mistakes!</p>')+
+    '<button class="primary" id="again">Play again &mdash; new random questions</button></div>';
+  $("#again").onclick = startQuiz;
+}
+startQuiz();
+
+/* ---------- DRAG AND DROP ENGINE ---------- */
+function initDnD(root, words){
+  const bank = root.querySelector(".bank");
+  const result = root.querySelector(".result");
+  const slots = () => [...root.querySelectorAll(".slot")];
+  let selected = null;
+
+  function deselect(){ if(selected) selected.classList.remove("selected"); selected = null; root.classList.remove("has-selection"); }
+  function say(text, cls){ if(result){ result.textContent = text; result.className = "result " + (cls||""); } }
+  function resetStatus(){ slots().forEach(s => s.classList.remove("ok","bad")); }
+
+  function makeChip(w){
+    const c = document.createElement("span");
+    c.className = "chip"; c.textContent = w; c.dataset.word = w; c.tabIndex = 0; c.setAttribute("role","button");
+    c.addEventListener("pointerdown", e => onDown(e,c));
+    c.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); tap(c); }});
+    return c;
+  }
+  function build(){
+    deselect(); bank.innerHTML = "";
+    slots().forEach(s => { s.innerHTML = ""; s.classList.remove("ok","bad"); s.tabIndex = 0; });
+    shuffle(words).forEach(w => bank.appendChild(makeChip(w)));
+    say("");
+  }
+  function place(chip, slot){
+    const from = chip.parentElement, existing = slot.querySelector(".chip");
+    if(existing === chip){ deselect(); return; }
+    if(existing) (from.classList.contains("slot") ? from : bank).appendChild(existing);
+    slot.appendChild(chip);
+    [from, slot].forEach(s => s.classList && s.classList.remove("ok","bad"));
+    deselect();
+  }
+  function toBank(chip){
+    const from = chip.parentElement;
+    bank.appendChild(chip);
+    if(from.classList.contains("slot")) from.classList.remove("ok","bad");
+    deselect();
+  }
+  function tap(chip){
+    const par = chip.parentElement;
+    if(selected && selected !== chip && par.classList.contains("slot")){ place(selected, par); return; }
+    if(selected === chip){ deselect(); return; }
+    deselect(); selected = chip; chip.classList.add("selected"); root.classList.add("has-selection");
+  }
+  function drop(chip, t){
+    if(!t) return;
+    const slot = t.closest(".slot");
+    if(slot && root.contains(slot)){ place(chip, slot); return; }
+    if(bank.contains(t) || t === bank) toBank(chip);
+  }
+  function onDown(e, chip){
+    if(e.pointerType === "mouse" && e.button !== 0) return;
+    const sx = e.clientX, sy = e.clientY, r = chip.getBoundingClientRect(), ox = sx - r.left, oy = sy - r.top;
+    let ghost = null, dragging = false, over = null;
+    try{ chip.setPointerCapture(e.pointerId); }catch(_){}
+    const move = ev => {
+      if(!dragging){
+        if(Math.hypot(ev.clientX-sx, ev.clientY-sy) < 6) return;
+        dragging = true;
+        ghost = chip.cloneNode(true); ghost.classList.remove("selected"); ghost.classList.add("ghost");
+        document.body.appendChild(ghost); chip.classList.add("dragging");
+      }
+      ghost.style.left = (ev.clientX - ox) + "px"; ghost.style.top = (ev.clientY - oy) + "px";
+      if(ev.clientY < 70) window.scrollBy(0,-14); else if(ev.clientY > innerHeight - 70) window.scrollBy(0,14);
+      const t = document.elementFromPoint(ev.clientX, ev.clientY);
+      let z = t && (t.closest(".slot") || t.closest(".bank"));
+      if(z && !root.contains(z)) z = null;
+      if(over !== z){ if(over) over.classList.remove("over"); over = z; if(over) over.classList.add("over"); }
+    };
+    const end = ev => {
+      chip.removeEventListener("pointermove", move);
+      chip.removeEventListener("pointerup", end);
+      chip.removeEventListener("pointercancel", end);
+      try{ chip.releasePointerCapture(e.pointerId); }catch(_){}
+      if(over) over.classList.remove("over");
+      if(dragging){
+        ghost.remove(); chip.classList.remove("dragging");
+        if(ev.type === "pointerup") drop(chip, document.elementFromPoint(ev.clientX, ev.clientY));
+      } else if(ev.type === "pointerup"){ tap(chip); }
+    };
+    chip.addEventListener("pointermove", move);
+    chip.addEventListener("pointerup", end);
+    chip.addEventListener("pointercancel", end);
+  }
+
+  root.addEventListener("click", e => {
+    if(e.target.closest(".chip")) return;
+    const slot = e.target.closest(".slot");
+    if(slot && selected){ place(selected, slot); return; }
+    if(selected && e.target.closest(".bank")) toBank(selected);
+  });
+  root.addEventListener("keydown", e => {
+    const slot = e.target.classList && e.target.classList.contains("slot") ? e.target : null;
+    if(slot && selected && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); place(selected, slot); }
+  });
+
+  const api = {
+    build,
+    check(){
+      let ok = 0, empty = 0; const all = slots();
+      all.forEach(s => {
+        s.classList.remove("ok","bad");
+        const c = s.querySelector(".chip");
+        if(!c){ empty++; return; }
+        if(c.dataset.word === s.dataset.answer){ s.classList.add("ok"); ok++; } else s.classList.add("bad");
+      });
+      const txt = ok + " / " + all.length + " correct" + (empty ? " (" + empty + " still empty)" : "") + ".";
+      say(ok === all.length ? "🎉 " + txt + " Well done!" : txt, ok === all.length ? "good" : ok >= all.length*0.6 ? "mid" : "low");
+    },
+    retry(){
+      slots().forEach(s => { const c = s.querySelector(".chip"); if(s.classList.contains("bad") && c) bank.appendChild(c); s.classList.remove("ok","bad"); });
+      deselect(); say("Move the wrong words to a new place, then check again.");
+    },
+    reveal(){
+      const chips = [...root.querySelectorAll(".chip")];
+      chips.forEach(c => bank.appendChild(c));
+      slots().forEach(s => { const c = chips.find(x => x.dataset.word === s.dataset.answer); if(c){ s.appendChild(c); s.classList.add("ok"); } });
+      deselect(); say("Here are the correct answers.");
+    }
+  };
+  root.querySelectorAll("[data-act]").forEach(b => b.addEventListener("click", () => api[b.dataset.act]()));
+  return api;
+}
+
+/* ---------- PART 3: MATCH ---------- */
+const matchRoot = $("#match");
+const matchDnD = initDnD(matchRoot, VOCAB.map(v => v.w));
+const origBuild = matchDnD.build;
+function buildMatch(){
+  $("#defs").innerHTML = shuffle(VOCAB).map(v =>
+    '<div class="def-row"><span class="slot" data-answer="'+v.w+'" data-ph="Drop word here"></span><p>'+esc(v.def)+'</p></div>').join("");
+  origBuild();
+}
+matchRoot.querySelector('[data-act="build"]').addEventListener("click", buildMatch);
+buildMatch();
+
+/* ---------- PART 4: EMAILS ---------- */
+const emailWords = ["supply chain","carrier","perishable","lead time","consignment","insurance",
+                    "dispatch","transit","surcharge","traceability","last mile","dock",
+                    "backlog","bottleneck","shortage","outsource"];
+initDnD($("#emails"), emailWords).build();
+</script>
+</body>
+</html>

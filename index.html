@@ -30,7 +30,7 @@
     .search:focus{outline:3px solid rgba(47,111,109,.2);border-color:var(--teal)}
     .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:0;margin:0;list-style:none}
     .grid li{min-width:0}
-    .card{display:flex;min-height:88px;height:100%;flex-direction:column;justify-content:space-between;gap:10px;padding:12px 13px;border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow);color:var(--ink);text-decoration:none;transition:background .16s ease,border-color .16s ease,transform .16s ease,box-shadow .16s ease}
+    .card{display:flex;min-height:88px;height:100%;flex-direction:column;justify-content:space-between;gap:10px;padding:12px 13px;border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow);transition:transform .14s ease,border-color .14s ease,box-shadow .14s ease,background-color .14s ease}
     .card:hover{transform:translateY(-1px);border-color:#8eaaa8;background:#fbfdfc;box-shadow:0 9px 18px rgba(24,49,75,.1)}
     .card:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
     .card-title{font-size:.86rem;font-weight:650;line-height:1.3;overflow-wrap:anywhere}
@@ -48,8 +48,8 @@
 <body>
   <header class="masthead"><div class="shell masthead-inner"><div class="brand"><span class="brand-mark" aria-hidden="true">B</span><span>Balmain English</span></div><div class="library-label">Learning Library</div></div></header>
   <main class="shell">
-    <section class="intro" aria-labelledby="page-title"><p class="eyebrow">English learning resources</p><h1 id="page-title">Vocabulary</h1><p class="lede">A practical collection of vocabulary exercises, from foundational language to specialist and professional vocabulary.</p></section>
-    <section aria-label="Vocabulary exercise directory"><div class="toolbar"><h2 class="section-title">Explore the collection <span class="count" id="count" aria-live="polite">Loading…</span></h2><input class="search" id="search" type="search" placeholder="Search activities…" aria-label="Search activities" autocomplete="off"></div><ul class="grid" id="items" aria-live="polite" aria-busy="true"><li class="message">Loading activities…</li></ul></section>
+    <section class="intro" aria-labelledby="page-title"><p class="eyebrow">Vocabulary practice</p><h1 id="page-title">Vocabulary</h1><p class="lede">A focused collection of vocabulary exercises for everyday study and revision.</p></section>
+    <section aria-label="Vocabulary exercise directory"><div class="toolbar"><h2 class="section-title">Explore the collection <span class="count" id="count" aria-live="polite">Loading…</span></h2><input id="search" class="search" type="search" placeholder="Search activities" aria-label="Search vocabulary activities"></div><ul id="items" class="grid" aria-live="polite" aria-busy="true"></ul></section>
   </main>
   <footer><div class="shell">Balmain English · Learning Library</div></footer>
   <script>
@@ -82,7 +82,7 @@
       fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`)
         .then(response=>{if(!response.ok)throw new Error('Unable to load activities');return response.json()})
         .then(data=>{
-          pages=(data.tree||[]).filter(file=>file.type==='blob'&&/\.html?$/i.test(file.path)&&!/index\.html$/i.test(file.path.split('/').pop())).map(file=>({path:file.path,title:titleOf(file.path),level:levelOf(file.path)})).sort((a,b)=>a.title.localeCompare(b.title));
+          pages=(data.tree||[]).filter(file=>file.type==='blob'&&/\.html?$/i.test(file.path)&&!/index\.html$/i.test(file.path.split('/').pop())).map(file=>({path:file.path,title:titleOf(file.path),level:levelOf(file.path)}));
           list.setAttribute('aria-busy','false');render();
         })
         .catch(()=>{count.textContent='Activities unavailable';list.setAttribute('aria-busy','false');list.innerHTML='<li class="message">Unable to load activities right now. Please try again later.</li>'});

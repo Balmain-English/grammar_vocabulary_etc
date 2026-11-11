@@ -48,8 +48,8 @@
 <body>
   <header class="masthead"><div class="shell masthead-inner"><div class="brand"><span class="brand-mark" aria-hidden="true">B</span><span>Balmain English</span></div><div class="library-label">Learning Library</div></div></header>
   <main class="shell">
-    <section class="intro" aria-labelledby="page-title"><p class="eyebrow">English learning resources</p><h1 id="page-title">Grammar &amp; vocabulary</h1><p class="lede">A practical collection of language activities, from grammar foundations to specialist and professional vocabulary.</p></section>
-    <section aria-label="Exercise directory"><div class="toolbar"><h2 class="section-title">Explore the collection <span class="count" id="count" aria-live="polite">Loading…</span></h2><input class="search" id="search" type="search" placeholder="Search activities…" aria-label="Search activities" autocomplete="off"></div><ul class="grid" id="items" aria-live="polite" aria-busy="true"><li class="message">Loading activities…</li></ul></section>
+    <section class="intro" aria-labelledby="page-title"><p class="eyebrow">English learning resources</p><h1 id="page-title">Vocabulary</h1><p class="lede">A practical collection of vocabulary exercises, from foundational language to specialist and professional vocabulary.</p></section>
+    <section aria-label="Vocabulary exercise directory"><div class="toolbar"><h2 class="section-title">Explore the collection <span class="count" id="count" aria-live="polite">Loading…</span></h2><input class="search" id="search" type="search" placeholder="Search activities…" aria-label="Search activities" autocomplete="off"></div><ul class="grid" id="items" aria-live="polite" aria-busy="true"><li class="message">Loading activities…</li></ul></section>
   </main>
   <footer><div class="shell">Balmain English · Learning Library</div></footer>
   <script>
@@ -71,7 +71,7 @@
           link.className='card';link.href='./'+page.path.split('/').map(encodeURIComponent).join('/');
           const title=document.createElement('span');title.className='card-title';title.textContent=page.title;
           const meta=document.createElement('span');meta.className='card-meta';
-          const kind=document.createElement('span');kind.textContent=/quiz|test/i.test(page.title)?'Quiz / assessment':/vocab/i.test(page.title)?'Vocabulary':'Language practice';
+          const kind=document.createElement('span');kind.textContent=/quiz|test/i.test(page.title)?'Quiz / assessment':'Vocabulary';
           meta.append(kind);
           const level=page.level;if(level){const badge=document.createElement('span');badge.className='level';badge.textContent=level;meta.append(badge)}
           const open=document.createElement('span');open.className='open';open.textContent='Open ↗';meta.append(open);

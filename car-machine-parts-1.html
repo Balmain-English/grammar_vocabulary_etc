@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cars & Machines – Vocabulary Exercise</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --surface2: #242424;
+    --border: #333;
+    --accent: #f5c842;
+    --accent2: #e84040;
+    --green: #4caf7d;
+    --text: #f0ece2;
+    --muted: #888;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  header h1 span { color: var(--accent); }
+
+  header p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    margin: 4px 3px;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .progress-step {
+    flex: 1;
+    max-width: 120px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    transition: background 0.4s;
+  }
+
+  .progress-step.active { background: var(--accent); }
+  .progress-step.done { background: var(--green); }
+
+  .step-labels {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .step-label {
+    flex: 1;
+    max-width: 120px;
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .step-label.active { color: var(--accent); font-weight: 600; }
+  .step-label.done { color: var(--green); }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.visible { display: block; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .section-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .section-header .part-num {
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .section-desc {
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  /* MULTIPLE CHOICE */
+  .mc-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+
+  .mc-question {
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .mc-question img.q-icon {
+    font-size: 1.1rem;
+    margin-right: 6px;
+  }
+
+  .mc-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .mc-opt {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    text-align: left;
+  }
+
+  .mc-opt:hover:not(:disabled) { border-color: var(--accent); background: #2a2a1a; }
+  .mc-opt.correct { border-color: var(--green) !important; background: #0d2518 !important; color: var(--green); }
+  .mc-opt.wrong { border-color: var(--accent2) !important; background: #2a0d0d !important; color: var(--accent2); }
+  .mc-opt:disabled { cursor: default; }
+
+  .feedback-inline {
+    font-size: 0.75rem;
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: none;
+  }
+  .feedback-inline.show { display: block; }
+  .feedback-inline.ok { background: #0d2518; color: var(--green); }
+  .feedback-inline.bad { background: #2a0d0d; color: #f77; }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    margin-bottom: 10px;
+  }
+
+  .match-col-header {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    padding-left: 2px;
+  }
+
+  .match-word, .match-def {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    margin-bottom: 6px;
+  }
+
+  .match-word:hover, .match-def:hover { border-color: var(--accent); }
+  .match-word.selected, .match-def.selected { border-color: var(--accent); background: #2a2a1a; }
+  .match-word.matched, .match-def.matched { border-color: var(--green); background: #0d2518; color: var(--green); pointer-events: none; }
+  .match-word.wrong-match, .match-def.wrong-match { border-color: var(--accent2); background: #2a0d0d; animation: shake 0.3s; }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    25%{transform:translateX(-6px)}
+    75%{transform:translateX(6px)}
+  }
+
+  /* GAP FILL */
+  .gap-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  .gap-sentence {
+    font-size: 0.88rem;
+    line-height: 2;
+  }
+
+  .gap-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    padding: 0 4px;
+    transition: border-color 0.2s;
+  }
+
+  .gap-input:focus { border-bottom-color: #fff; color: #fff; }
+  .gap-input.correct { border-bottom-color: var(--green) !important; color: var(--green) !important; }
+  .gap-input.wrong { border-bottom-color: var(--accent2) !important; color: var(--accent2) !important; }
+  .gap-input:disabled { opacity: 1; }
+
+  .word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding: 14px;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+
+  .wb-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    transition: opacity 0.3s;
+  }
+
+  .wb-tag.used { opacity: 0.3; text-decoration: line-through; }
+
+  /* BUTTONS */
+  .btn {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+    padding: 12px 28px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #111;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .btn-secondary:hover { border-color: var(--text); color: var(--text); }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* RESULTS */
+  .result-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .result-score {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .result-score span { font-size: 1.2rem; color: var(--muted); }
+
+  .result-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .breakdown-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .breakdown-box .num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .breakdown-box .lbl {
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  .review-list { margin-top: 10px; }
+
+  .review-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .review-item:last-child { border-bottom: none; }
+
+  .ri-icon { flex-shrink: 0; font-size: 1rem; }
+
+  .ri-word { font-weight: 600; color: var(--text); }
+  .ri-detail { color: var(--muted); }
+  .ri-correct { color: var(--green); }
+  .ri-wrong { color: var(--accent2); }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+  }
+
+  .review-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 16px 0 8px;
+  }
+
+  @media (max-width: 500px) {
+    .mc-options { grid-template-columns: 1fr; }
+    .result-breakdown { grid-template-columns: 1fr 1fr; }
+    .match-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Cars & <span>Machines</span><br>Vocabulary</h1>
+  <p>A1 / A2 · 30 words · 3 parts</p>
+  <div style="margin-top:10px;">
+    <span class="badge">🚗 Cars</span>
+    <span class="badge">⚙️ Production</span>
+    <span class="badge">📝 30 words</span>
+  </div>
+</header>
+
+<!-- Progress -->
+<div class="progress-bar">
+  <div class="progress-step active" id="ps1"></div>
+  <div class="progress-step" id="ps2"></div>
+  <div class="progress-step" id="ps3"></div>
+  <div class="progress-step" id="ps4"></div>
+</div>
+<div class="step-labels">
+  <div class="step-label active" id="sl1">1 · Choice</div>
+  <div class="step-label" id="sl2">2 · Match</div>
+  <div class="step-label" id="sl3">3 · Gap Fill</div>
+  <div class="step-label" id="sl4">Results</div>
+</div>
+
+<!-- ===================== PART 1: MULTIPLE CHOICE ===================== -->
+<div class="section visible" id="sec1">
+  <div class="section-header">
+    <span class="part-num">Part 1 / 3</span>
+    <h2>Multiple Choice</h2>
+  </div>
+  <p class="section-desc">Choose the correct word for each definition. Click your answer to get immediate feedback.</p>
+  <div id="mc-container"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkMC()">Check All</button>
+    <button class="btn btn-secondary" id="btn-mc-next" style="display:none" onclick="goToSection(2)">Next Part →</button>
+  </div>
+</div>
+
+<!-- ===================== PART 2: MATCHING ===================== -->
+<div class="section" id="sec2">
+  <div class="section-header">
+    <span class="part-num">Part 2 / 3</span>
+    <h2>Matching</h2>
+  </div>
+  <p class="section-desc">Click a word on the left, then click its definition on the right. Match all 10 pairs.</p>
+  <div class="match-grid">
+    <div>
+      <div class="match-col-header">Words</div>
+      <div id="match-words"></div>
+    </div>
+    <div>
+      <div class="match-col-header">Definitions</div>
+      <div id="match-defs"></div>
+    </div>
+  </div>
+  <div id="match-feedback" style="font-size:0.8rem; color:var(--muted); margin-top:8px;"></div>
+  <div class="btn-row">
+    <button class="btn btn-secondary" id="btn-match-next" style="display:none" onclick="goToSection(3)">Next Part →</button>
+  </div>
+</div>
+
+<!-- ===================== PART 3: GAP FILL ===================== -->
+<div class="section" id="sec3">
+  <div class="section-header">
+    <span class="part-num">Part 3 / 3</span>
+    <h2>Gap Fill</h2>
+  </div>
+  <p class="section-desc">Type the missing word in each sentence. Use the word bank below.</p>
+  <div class="word-bank" id="word-bank"></div>
+  <div id="gap-container"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkGap()">Check All</button>
+    <button class="btn btn-secondary" id="btn-gap-next" style="display:none" onclick="goToSection(4)">See Results →</button>
+  </div>
+</div>
+
+<!-- ===================== RESULTS ===================== -->
+<div class="section" id="sec4">
+  <div class="section-header">
+    <h2>Your Results</h2>
+  </div>
+  <div class="result-card">
+    <div class="result-score" id="total-score">–</div>
+    <p style="color:var(--muted);font-size:0.78rem;margin-top:6px;" id="score-msg"></p>
+    <div class="result-breakdown">
+      <div class="breakdown-box"><div class="num" id="sc1">–</div><div class="lbl">Multiple Choice</div></div>
+      <div class="breakdown-box"><div class="num" id="sc2">–</div><div class="lbl">Matching</div></div>
+      <div class="breakdown-box"><div class="num" id="sc3">–</div><div class="lbl">Gap Fill</div></div>
+    </div>
+  </div>
+
+  <div class="result-card" id="review-card">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:12px;">Review</div>
+    <div id="review-content"></div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="restartAll()">Try Again</button>
+  </div>
+</div>
+
+<script>
+// ===================== DATA =====================
+const allWords = [
+  // Cars
+  { word: "engine",      def: "the machine inside a car that makes it move",          cat: "car" },
+  { word: "wheel",       def: "the round part of a car that turns on the road",       cat: "car" },
+  { word: "brake",       def: "the part you press to slow down or stop a car",        cat: "car" },
+  { word: "hood",        def: "the metal cover over the front engine of a car",       cat: "car" },
+  { word: "trunk",       def: "the storage space at the back of a car",               cat: "car" },
+  { word: "headlight",   def: "the lamp at the front of a car used at night",         cat: "car" },
+  { word: "bumper",      def: "the bar at the front and back that protects the car",  cat: "car" },
+  { word: "windshield",  def: "the large glass window at the front of a car",         cat: "car" },
+  { word: "dashboard",   def: "the panel in front of the driver with gauges and controls", cat: "car" },
+  { word: "gear",        def: "a part that changes the speed or force of a car",      cat: "car" },
+  { word: "mirror",      def: "the glass on a car you use to see behind you",         cat: "car" },
+  { word: "tyre",        def: "the black rubber ring around a car wheel",             cat: "car" },
+  { word: "seatbelt",    def: "the safety strap you wear in a car",                   cat: "car" },
+  { word: "tank",        def: "the container in a car that holds fuel",               cat: "car" },
+  { word: "exhaust",     def: "the pipe at the back of a car that lets out gases",    cat: "car" },
+  // Production Machines
+  { word: "conveyor",    def: "a moving belt that carries objects from one place to another", cat: "machine" },
+  { word: "drill",       def: "a machine or tool that makes holes in hard materials", cat: "machine" },
+  { word: "lathe",       def: "a machine that shapes metal or wood by spinning it",   cat: "machine" },
+  { word: "press",       def: "a machine that uses force to shape or cut materials",  cat: "machine" },
+  { word: "crane",       def: "a large machine used to lift and move heavy objects",  cat: "machine" },
+  { word: "grinder",     def: "a machine that smooths or cuts surfaces by rubbing",   cat: "machine" },
+  { word: "welder",      def: "a machine that joins metal parts together using heat", cat: "machine" },
+  { word: "compressor",  def: "a machine that reduces the volume of a gas",           cat: "machine" },
+  { word: "pump",        def: "a machine that moves liquid or gas through pipes",     cat: "machine" },
+  { word: "valve",       def: "a device that controls the flow of liquid or gas",     cat: "machine" },
+  { word: "nozzle",      def: "the narrow end of a pipe through which liquid comes out", cat: "machine" },
+  { word: "piston",      def: "a part that moves up and down inside an engine cylinder", cat: "machine" },
+  { word: "sensor",      def: "a device that detects changes like heat or movement",  cat: "machine" },
+  { word: "bolt",        def: "a metal pin used to fasten parts of a machine together", cat: "machine" },
+  { word: "gauge",       def: "an instrument that measures and shows a value",        cat: "machine" },
+];
+
+// Scores
+let scores = { mc: 0, match: 0, gap: 0 };
+let mcDone = false, matchDone = false, gapDone = false;
+
+// ===================== UTILS =====================
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ===================== PART 1 – MULTIPLE CHOICE =====================
+const mcWords = shuffle(allWords).slice(0, 10);
+
+function buildMC() {
+  const container = document.getElementById('mc-container');
+  container.innerHTML = '';
+  mcWords.forEach((item, i) => {
+    const wrong = shuffle(allWords.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.word);
+    const options = shuffle([item.word, ...wrong]);
+    const div = document.createElement('div');
+    div.className = 'mc-item';
+    div.dataset.answer = item.word;
+    div.dataset.index = i;
+    div.innerHTML = `
+      <div class="mc-question"><strong>${i + 1}.</strong> ${item.def}</div>
+      <div class="mc-options">
+        ${options.map(o => `<button class="mc-opt" onclick="pickMC(this, '${o}', ${i})">${o}</button>`).join('')}
+      </div>
+      <div class="feedback-inline" id="mc-fb-${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function pickMC(btn, choice, idx) {
+  const item = document.getElementById('mc-container').querySelectorAll('.mc-item')[idx];
+  const answer = item.dataset.answer;
+  const opts = item.querySelectorAll('.mc-opt');
+  opts.forEach(b => { b.disabled = true; });
+  if (choice === answer) {
+    btn.classList.add('correct');
+    showFB(idx, true, `✓ Correct! "${answer}" means: ${mcWords[idx].def}`);
+  } else {
+    btn.classList.add('wrong');
+    opts.forEach(b => { if (b.textContent === answer) b.classList.add('correct'); });
+    showFB(idx, false, `✗ Not quite. The correct answer is "${answer}".`);
+  }
+}
+
+function showFB(idx, ok, msg) {
+  const fb = document.getElementById(`mc-fb-${idx}`);
+  fb.textContent = msg;
+  fb.className = 'feedback-inline show ' + (ok ? 'ok' : 'bad');
+}
+
+function checkMC() {
+  const items = document.querySelectorAll('.mc-item');
+  let correct = 0;
+  items.forEach((item, i) => {
+    const opts = item.querySelectorAll('.mc-opt');
+    const answered = [...opts].some(b => b.classList.contains('correct') || b.classList.contains('wrong'));
+    if (!answered) {
+      // mark unanswered as wrong
+      opts.forEach(b => { b.disabled = true; if (b.textContent === item.dataset.answer) b.classList.add('correct'); });
+      showFB(i, false, `✗ Not answered. The correct answer is "${item.dataset.answer}".`);
+    } else {
+      const gotIt = [...opts].some(b => b.classList.contains('correct') && b.classList.contains('correct') && !b.classList.contains('wrong'));
+      // check if user selected the correct one
+    }
+  });
+  // count correct based on feedback classes
+  let cnt = 0;
+  items.forEach(item => {
+    const userPicked = [...item.querySelectorAll('.mc-opt')].find(b => b.classList.contains('correct') || b.classList.contains('wrong'));
+    if (userPicked && userPicked.classList.contains('correct')) cnt++;
+  });
+  scores.mc = cnt;
+  mcDone = true;
+  document.getElementById('btn-mc-next').style.display = 'inline-block';
+  document.querySelector('#sec1 .btn-primary').disabled = true;
+}
+
+// ===================== PART 2 – MATCHING =====================
+const matchWords = shuffle(allWords).slice(0, 10);
+let selectedWord = null, selectedDef = null;
+let matchedPairs = 0;
+let matchReview = [];
+
+function buildMatch() {
+  const wc = document.getElementById('match-words');
+  const dc = document.getElementById('match-defs');
+  wc.innerHTML = '';
+  dc.innerHTML = '';
+  const shuffledDefs = shuffle(matchWords.map((w, i) => ({ def: w.def, idx: i })));
+
+  matchWords.forEach((item, i) => {
+    const w = document.createElement('div');
+    w.className = 'match-word';
+    w.textContent = item.word;
+    w.dataset.idx = i;
+    w.onclick = () => selectWord(w, i);
+    wc.appendChild(w);
+  });
+
+  shuffledDefs.forEach(({ def, idx }) => {
+    const d = document.createElement('div');
+    d.className = 'match-def';
+    d.textContent = def;
+    d.dataset.idx = idx;
+    d.onclick = () => selectDef(d, idx);
+    dc.appendChild(d);
+  });
+}
+
+function selectWord(el, idx) {
+  if (el.classList.contains('matched')) return;
+  document.querySelectorAll('.match-word').forEach(w => w.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedWord = { el, idx };
+  tryMatch();
+}
+
+function selectDef(el, idx) {
+  if (el.classList.contains('matched')) return;
+  document.querySelectorAll('.match-def').forEach(d => d.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedDef = { el, idx };
+  tryMatch();
+}
+
+function tryMatch() {
+  if (!selectedWord || !selectedDef) return;
+  if (selectedWord.idx === selectedDef.idx) {
+    selectedWord.el.classList.remove('selected');
+    selectedWord.el.classList.add('matched');
+    selectedDef.el.classList.remove('selected');
+    selectedDef.el.classList.add('matched');
+    matchedPairs++;
+    matchReview.push({ word: matchWords[selectedWord.idx].word, correct: true });
+    document.getElementById('match-feedback').textContent = `✓ Matched: ${matchWords[selectedWord.idx].word}`;
+    if (matchedPairs === matchWords.length) {
+      scores.match = matchedPairs;
+      matchDone = true;
+      document.getElementById('match-feedback').textContent = `✓ All matched! Great job!`;
+      document.getElementById('btn-match-next').style.display = 'inline-block';
+    }
+  } else {
+    selectedWord.el.classList.add('wrong-match');
+    selectedDef.el.classList.add('wrong-match');
+    matchReview.push({ word: matchWords[selectedWord.idx].word, correct: false, yourDef: selectedDef.el.textContent });
+    setTimeout(() => {
+      selectedWord.el.classList.remove('selected', 'wrong-match');
+      selectedDef.el.classList.remove('selected', 'wrong-match');
+    }, 500);
+  }
+  selectedWord = null;
+  selectedDef = null;
+}
+
+// ===================== PART 3 – GAP FILL =====================
+const gapWords = shuffle(allWords).slice(0, 10);
+
+function buildGap() {
+  const bank = document.getElementById('word-bank');
+  const container = document.getElementById('gap-container');
+  bank.innerHTML = '';
+  container.innerHTML = '';
+
+  const shuffledBank = shuffle(gapWords.map(w => w.word));
+  shuffledBank.forEach(w => {
+    const t = document.createElement('span');
+    t.className = 'wb-tag';
+    t.id = 'wb-' + w;
+    t.textContent = w;
+    bank.appendChild(t);
+  });
+
+  const gapSentences = [
+    idx => `The car won't start. There is a problem with the <strong>___</strong>. It needs repair. [word: ${gapWords[idx].word}]`,
+  ];
+
+  gapWords.forEach((item, i) => {
+    const sentence = makeSentence(item, i);
+    const div = document.createElement('div');
+    div.className = 'gap-item';
+    div.innerHTML = `
+      <div class="gap-sentence">
+        <strong>${i + 1}.</strong> ${sentence.before}<input class="gap-input" id="gap-${i}" placeholder="___" autocomplete="off" oninput="hintWordBank(this.value)">${sentence.after}
+      </div>
+      <div class="feedback-inline" id="gap-fb-${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function makeSentence(item, i) {
+  const templates = {
+    "engine":     { before: "The car makes a loud noise. The problem is with the ", after: "." },
+    "wheel":      { before: "You need to change the flat ", after: " on the left side of the car." },
+    "brake":      { before: "Always check the ", after: " before a long trip — it stops the car." },
+    "hood":       { before: "The mechanic opened the ", after: " to look at the engine." },
+    "trunk":      { before: "Put the bags in the ", after: " at the back of the car." },
+    "headlight":  { before: "The left ", after: " is broken, so the driver can't see at night." },
+    "bumper":     { before: "The front ", after: " was damaged in the small accident." },
+    "windshield": { before: "There is a crack in the ", after: ". The driver cannot see well." },
+    "dashboard":  { before: "Check the ", after: " to see the speed and fuel level." },
+    "gear":       { before: "Change the ", after: " to slow down when going downhill." },
+    "mirror":     { before: "Check your side ", after: " before you change lanes." },
+    "tyre":       { before: "The ", after: " is flat. We need to put air in it." },
+    "seatbelt":   { before: "Always put on your ", after: " before the car moves." },
+    "tank":       { before: "The fuel ", after: " is empty. Stop at the next petrol station." },
+    "exhaust":    { before: "The car's ", after: " pipe produces gases when the engine runs." },
+    "conveyor":   { before: "The boxes move along the ", after: " belt to the packing area." },
+    "drill":      { before: "Use a ", after: " to make a hole in the metal plate." },
+    "lathe":      { before: "The operator used a ", after: " to shape the metal cylinder." },
+    "press":      { before: "The hydraulic ", after: " cuts the metal sheets to the right size." },
+    "crane":      { before: "A ", after: " lifted the heavy machine onto the truck." },
+    "grinder":    { before: "The worker used a ", after: " to smooth the rough edges." },
+    "welder":     { before: "A ", after: " joins the two metal parts with high heat." },
+    "compressor": { before: "The air ", after: " fills the tyres with the right pressure." },
+    "pump":       { before: "A ", after: " moves the water through the cooling system." },
+    "valve":      { before: "Open the ", after: " to let the liquid flow into the container." },
+    "nozzle":     { before: "The ", after: " at the end of the hose controls the water flow." },
+    "piston":     { before: "The ", after: " moves up and down inside the engine cylinder." },
+    "sensor":     { before: "The temperature ", after: " detects when the machine gets too hot." },
+    "bolt":       { before: "Tighten the ", after: " to keep the two parts together." },
+    "gauge":      { before: "Read the pressure ", after: " to check if the system is safe." },
+  };
+  return templates[item.word] || { before: "The ", after: ` is a part used in the context of: ${item.def}` };
+}
+
+function hintWordBank(val) {
+  // live update word bank (just for visual — not logic)
+}
+
+function checkGap() {
+  let correct = 0;
+  gapWords.forEach((item, i) => {
+    const input = document.getElementById(`gap-${i}`);
+    const val = input.value.trim().toLowerCase();
+    input.disabled = true;
+    const fb = document.getElementById(`gap-fb-${i}`);
+    const tag = document.getElementById('wb-' + item.word);
+    if (val === item.word) {
+      correct++;
+      input.classList.add('correct');
+      fb.textContent = `✓ Correct!`;
+      fb.className = 'feedback-inline show ok';
+      if (tag) tag.classList.add('used');
+    } else {
+      input.classList.add('wrong');
+      input.value = val || '—';
+      fb.textContent = `✗ The answer is "${item.word}".`;
+      fb.className = 'feedback-inline show bad';
+      if (tag) tag.classList.add('used');
+    }
+  });
+  scores.gap = correct;
+  gapDone = true;
+  document.querySelector('#sec3 .btn-primary').disabled = true;
+  document.getElementById('btn-gap-next').style.display = 'inline-block';
+}
+
+// ===================== NAVIGATION =====================
+function goToSection(n) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.getElementById('sec' + n).classList.add('visible');
+  updateProgress(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (n === 4) buildResults();
+}
+
+function updateProgress(n) {
+  for (let i = 1; i <= 4; i++) {
+    const ps = document.getElementById('ps' + i);
+    const sl = document.getElementById('sl' + i);
+    ps.className = 'progress-step';
+    sl.className = 'step-label';
+    if (i < n) { ps.classList.add('done'); sl.classList.add('done'); }
+    else if (i === n) { ps.classList.add('active'); sl.classList.add('active'); }
+  }
+}
+
+// ===================== RESULTS =====================
+function buildResults() {
+  const total = scores.mc + scores.match + scores.gap;
+  const max = 30;
+  const pct = Math.round((total / max) * 100);
+
+  document.getElementById('total-score').innerHTML = `${total} <span>/ ${max}</span>`;
+  document.getElementById('sc1').textContent = `${scores.mc}/10`;
+  document.getElementById('sc2').textContent = `${scores.match}/10`;
+  document.getElementById('sc3').textContent = `${scores.gap}/10`;
+
+  let msg = '';
+  if (pct >= 90) msg = '🏆 Excellent! You know these words very well.';
+  else if (pct >= 70) msg = '👍 Good job! Review the words you missed.';
+  else if (pct >= 50) msg = '📚 Keep practising! Study the review below.';
+  else msg = '🔄 Try again after studying the word list.';
+  document.getElementById('score-msg').textContent = msg;
+
+  // Build review
+  const rc = document.getElementById('review-content');
+  rc.innerHTML = '';
+
+  // MC review
+  rc.innerHTML += `<div class="review-section-title">Part 1 – Multiple Choice</div>`;
+  mcWords.forEach((item, i) => {
+    const opts = document.querySelectorAll('.mc-item')[i]?.querySelectorAll('.mc-opt');
+    const correct = opts ? [...opts].some(b => b.classList.contains('correct') && !b.classList.contains('wrong')) : false;
+    // Detect if user's picked answer is correct
+    const userBtn = opts ? [...opts].find(b => b.classList.contains('correct') || b.classList.contains('wrong')) : null;
+    const isRight = userBtn && userBtn.classList.contains('correct');
+    rc.innerHTML += `<div class="review-item">
+      <div class="ri-icon">${isRight ? '✅' : '❌'}</div>
+      <div><span class="ri-word">${item.word}</span><br>
+      <span class="ri-detail">${item.def}</span></div>
+    </div>`;
+  });
+
+  rc.innerHTML += `<hr class="section-divider"><div class="review-section-title">Part 2 – Matching</div>`;
+  matchWords.forEach((item) => {
+    const el = [...document.querySelectorAll('.match-word')].find(w => w.textContent === item.word);
+    const isRight = el && el.classList.contains('matched');
+    rc.innerHTML += `<div class="review-item">
+      <div class="ri-icon">${isRight ? '✅' : '❌'}</div>
+      <div><span class="ri-word">${item.word}</span><br>
+      <span class="ri-detail">${item.def}</span></div>
+    </div>`;
+  });
+
+  rc.innerHTML += `<hr class="section-divider"><div class="review-section-title">Part 3 – Gap Fill</div>`;
+  gapWords.forEach((item, i) => {
+    const input = document.getElementById(`gap-${i}`);
+    const isRight = input && input.classList.contains('correct');
+    const userVal = input ? input.value : '—';
+    rc.innerHTML += `<div class="review-item">
+      <div class="ri-icon">${isRight ? '✅' : '❌'}</div>
+      <div><span class="ri-word">${item.word}</span>
+      ${!isRight ? `<span class="ri-wrong"> (you wrote: ${userVal})</span>` : ''}
+      <br><span class="ri-detail">${item.def}</span></div>
+    </div>`;
+  });
+}
+
+function restartAll() {
+  scores = { mc: 0, match: 0, gap: 0 };
+  mcDone = matchDone = gapDone = false;
+  selectedWord = null; selectedDef = null; matchedPairs = 0; matchReview = [];
+  buildMC();
+  buildMatch();
+  buildGap();
+  document.getElementById('btn-mc-next').style.display = 'none';
+  document.getElementById('btn-match-next').style.display = 'none';
+  document.getElementById('btn-gap-next').style.display = 'none';
+  document.querySelector('#sec1 .btn-primary').disabled = false;
+  document.querySelector('#sec3 .btn-primary').disabled = false;
+  goToSection(1);
+}
+
+// ===================== INIT =====================
+buildMC();
+buildMatch();
+buildGap();
+</script>
+</body>
+</html>

@@ -1,2 +1,2 @@
 # Others
-Repository for other interactive exercises
+Exercises to work on vocabulary
